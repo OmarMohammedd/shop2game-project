@@ -116,6 +116,17 @@ body {
   }
 } */
 
+@media (max-width: 500px) {
+  .ssss {
+    display: none;
+  }
+  [dir="rtl"] .oooo {
+    padding-left: 7px !important;
+  }
+  [dir="ltr"] .oooo {
+    padding-right: 7px !important;
+  }
+}
 [dir="ltr"] .ssss {
   width: 15px;
   position: absolute;
