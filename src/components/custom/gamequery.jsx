@@ -20,20 +20,29 @@ const Gamequery = () => {
   const game = useSelector((state) => state.game.value);
   return (
     <div
-      className="w-full h-fit flex flex-col items-end justify-end
-         pr-[310px] py-8 px-5 max-[1390px]:pr-20 max-[1100px]:pr-5
-         "
+      style={{
+        direction: language === "en" ? "ltr" : "rtl",
+      }}
+      className={`w-full h-fit flex flex-col items-end justify-end
+         ${
+           language === "en" ? "pr-[310px]" : "pl-[310px]"
+         } py-8 px-5  ${
+           language === "en" ? " max-[1390px]:pr-20" : " max-[1390px]:pl-20"
+         }  ${
+          language === "en" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
+        }`}
     >
-      
       <div
-        dir={language === "en" ? "ltr" : "rtl"}
-        style={{ marginBottom: "-1rem" }}
+        style={{
+          marginBottom: "-1rem",
+          direction: language === "en" ? "rtl" : "ltr",
+        }}
         className="mb-5 lg:mb-[28px] w-full max-w-[990px]"
       >
         <div className="relative flex items-center overflow-hidden transition-all">
           <div
             className="absolute h-full w-full rounded-t-lg bg-[#BDBDC5] bg-cover bg-center rtl:-scale-x-100 lg:rounded-lg"
-            style={{ 
+            style={{
               backgroundImage:
                 game === "freefire"
                   ? 'url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/FF-2cb78e7c.jpg")'
@@ -56,7 +65,7 @@ const Gamequery = () => {
             />
 
             <div className="ms-3 flex flex-col items-start lg:ms-5">
-              <div className="mb-1 text-base/none font-bold text-white lg:text-2xl/none">
+              <div className="mb-1 text-base/none font-bold  text-white lg:text-2xl/none">
                 {game === "freefire"
                   ? "Free Fire"
                   : game === "blackclover"
