@@ -133,7 +133,17 @@ body {
   overflow: hidden;
 }
 
+@media (min-width: 500px) {
+  .closee {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
+  .closee {
+    display: block;
+    width: 16px;
+    cursor: pointer;
+  }
   .listtt {
     position: fixed;
     left: 0;
@@ -149,6 +159,7 @@ body {
     display: flex;
     flex-direction: column;
   }
+
 }
 
 .save {
