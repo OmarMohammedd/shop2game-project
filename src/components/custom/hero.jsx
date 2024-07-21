@@ -79,9 +79,9 @@ const Hero = () => {
             ></div>
           </div>
 
-
-          <div style={{
-  display: language === 'en' ? 'none' : '' }}
+{/* style={{
+  display: language === 'en' ? 'none' : '' }} */}
+          <div 
             className="pointer-events-none absolute inset-0 flex rtl:-scale-x-100 rtl:flex-row-reverse"
             role="none"
           >
