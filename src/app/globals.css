@@ -116,11 +116,34 @@ body {
   }
 } */
 
+[dir="ltr"] .ssss {
+  width: 15px;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+[dir="rtl"] .ssss {
+  width: 15px;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
 .no-scroll {
   overflow: hidden;
 }
 
+@media (min-width: 500px) {
+  .closee {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
+  .closee {
+    display: block;
+    width: 16px;
+    cursor: pointer;
+  }
   .listtt {
     position: fixed;
     left: 0;
@@ -136,6 +159,7 @@ body {
     display: flex;
     flex-direction: column;
   }
+
 }
 
 .save {
