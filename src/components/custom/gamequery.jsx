@@ -35,7 +35,7 @@ const Gamequery = () => {
       <div
         style={{
           marginBottom: "-1rem",
-          direction: language === "ar" ? "ltr" : "rtl",
+          direction: language === "en" ? "ltr" : "rtl",
         }}
         className="mb-5 lg:mb-[28px] w-full max-w-[990px]"
       >

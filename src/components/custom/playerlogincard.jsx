@@ -89,7 +89,7 @@ const Playerlogincard = () => {
     };
 
     return (
-  <div dir={language ==='ar' ? 'rtl' : 'ltr'}
+  <div dir={language ==='en' ? 'rtl' : 'ltr'}
          className='w-fit mt-10 max-[736px]:w-full'>
             <div className='flex items-center justify-end gap-2 max-[736px]:w-full'>
                 {user?.loggedIn && <div className={`flex items-end max-[736px]:w-full justify-center gap-28 hover:cursor-pointer ${user ? 'max-[736px]:justify-between' : 'max-[736px]:items-start'}`}
@@ -188,13 +188,13 @@ const Playerlogincard = () => {
 </div>
 
 
-<div dir={language ==='ar' ? 'rtl' : 'ltr'} className='w-full flex max-[736px]:w-full'>
+<div dir={language ==='en' ? 'rtl' : 'ltr'} className='w-full flex max-[736px]:w-full'>
     <Button disabled={loading} onClick={handlePlayerLogin} variant='custom' size='custom'>
     {loading ? (language === 'en' ? 'Login ...' : '... تسجيل الدخول') : (language === 'en' ? 'Login' : 'تسجيل الدخول')}
     </Button>
     <div className='relative max-[736px]:w-full'>
         <Input
-            dir={language ==='ar' ? 'ltr' : 'rtl'}
+            dir={language ==='en' ? 'ltr' : 'rtl'}
             value={uid}
             onChange={(e) => setUid(e.target.value)}
             className={`font-ar relative w-[400px] max-[736px]:w-full ${language === 'ar' ? 'pr-12' : 'pl-12'} rounded-tl-none rounded-bl-none bg-white`}
@@ -236,7 +236,11 @@ const Playerlogincard = () => {
         </Menubar>
     </div>
 </div>
-<div dir={language ==='ar' ? 'ltr' : 'rtl'} style={{width:"100%"}} className="relative flex flex-col items-center gap-4 text-xs/normal text-text-secondary md:text-sm/[22px]">
+
+
+
+
+<div dir={language ==='en' ? 'ltr' : 'rtl'} style={{width:"100%"}} className="relative flex flex-col items-center gap-4 text-xs/normal text-text-secondary md:text-sm/[22px]">
       <div className="flex items-center justify-between w-full mb-4">
         <span className="flex-1">
           
