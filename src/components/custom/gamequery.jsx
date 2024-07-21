@@ -35,7 +35,7 @@ const Gamequery = () => {
       <div
         style={{
           marginBottom: "-1rem",
-          direction: language === "ar" ? "rtl" : "ltr",
+          direction: language === "ar" ? "ltr" : "rtl",
         }}
         className="mb-5 lg:mb-[28px] w-full max-w-[990px]"
       >
@@ -65,7 +65,7 @@ const Gamequery = () => {
             />
 
             <div className="ms-3 flex flex-col items-start lg:ms-5">
-              <div className="mb-1 text-base/none font-bold  text-white lg:text-2xl/none">
+              <div className="mb-1   text-base/none font-bold  text-white lg:text-2xl/none">
                 {game === "freefire"
                   ? "Free Fire"
                   : game === "blackclover"
