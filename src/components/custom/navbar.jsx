@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
 
-  const [tempLanguage, setTempLanguage] = useState(localStorage.getItem('selectedLanguage') || 'en');
+  const [tempLanguage, setTempLanguage] = useState('en');
+  // const [tempLanguage, setTempLanguage] = useState(localStorage.getItem('selectedLanguage') || 'en');
+
   
   const dispatch = useDispatch();
   const language = useSelector((state) => state.lan.language);
