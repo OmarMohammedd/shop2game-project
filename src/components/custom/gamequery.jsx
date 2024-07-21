@@ -21,15 +21,15 @@ const Gamequery = () => {
   return (
     <div
       style={{
-        direction: language === "en" ? "ltr" : "rtl",
+        direction: language === "ar" ? "ltr" : "rtl",
       }}
       className={`w-full h-fit flex flex-col items-end justify-end
          ${
-           language === "en" ? "pr-[310px]" : "pl-[310px]"
+           language === "ar" ? "pr-[310px]" : "pl-[310px]"
          } py-8 px-5  ${
-           language === "en" ? " max-[1390px]:pr-20" : " max-[1390px]:pl-20"
+           language === "ar" ? " max-[1390px]:pr-20" : " max-[1390px]:pl-20"
          }  ${
-          language === "en" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
+          language === "ar" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
         }`}
     >
       <div
