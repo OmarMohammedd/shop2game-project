@@ -27,11 +27,9 @@ const Gameselection = () => {
       style={{
         backgroundImage:
           language !== "en" ? `url("/assets/game-selection-bg.png")` : "none",
-        direction: language === "en" && "rtl",
+        direction: language === "ar" && "rtl",
       }}
-      className={`bg-[#efefef] w-full h-[200px] ${
-        language === "ar" ? "pr-80" : "pl-80"
-      } flex items-end flex-col justify-center  ${
+      className={`bg-[#efefef] w-full h-[200px] px-80  flex items-end flex-col justify-center  ${
         language === "ar" ? "max-[1100px]:pr-5" : "max-[1100px]:pl-5"
       } mt-5
       
@@ -41,7 +39,7 @@ const Gameselection = () => {
       `}
     >
       <p className=" font-ar  text-2xl font-bold mb-5">
-        {language === "en" ? "Choose the game" : "اختيار اللعبة"}
+        {language === "ar" ? "Choose the game" : "اختيار اللعبة"}
       </p>
 
       <div className="flex  items-center justify-end gap-8">
