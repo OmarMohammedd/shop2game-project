@@ -27,7 +27,7 @@ const Gamequery = () => {
          ${
            language === "ar" ? "pr-[310px]" : "pl-[310px]"
          } py-8 px-5  ${
-           language === "ar" ? " max-[1390px]:pr-20" : " max-[1390px]:pl-20"
+           language === "ar" ? "max-[1390px]:pr-20" : " max-[1390px]:pl-20"
          }  ${
           language === "ar" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
         }`}
