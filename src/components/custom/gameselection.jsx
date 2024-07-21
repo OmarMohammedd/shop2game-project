@@ -27,16 +27,16 @@ const Gameselection = () => {
       style={{
         backgroundImage:
           language !== "en" ? `url("/assets/game-selection-bg.png")` : "none",
-        direction: language === "ar" && "rtl",
+        direction: language === "en" && "rtl",
       }}
       className={`bg-[#efefef] w-full h-[200px] ${
-        language === "en" ? "pr-80" : "pl-80"
+        language === "ar" ? "pr-80" : "pl-80"
       } flex items-end flex-col justify-center  ${
-        language === "en" ? "max-[1100px]:pr-5" : "max-[1100px]:pl-5"
+        language === "ar" ? "max-[1100px]:pr-5" : "max-[1100px]:pl-5"
       } mt-5
       
       ${
-        language === "en" ? "max-[1390px]:pr-20" : "max-[1390px]:pl-20"
+        language === "ar" ? "max-[1390px]:pr-20" : "max-[1390px]:pl-20"
       }
       `}
     >
