@@ -197,10 +197,15 @@ const Playerlogincard = () => {
             dir={language ==='en' ? 'ltr' : 'rtl'}
             value={uid}
             onChange={(e) => setUid(e.target.value)}
-            className=' font-ar relative w-[400px] max-[736px]:w-full pl-12 rounded-tl-none rounded-bl-none  bg-white'
+            className={`font-ar relative w-[400px] max-[736px]:w-full ${language === 'en' ? 'pr-12' : 'pl-12'} rounded-tl-none rounded-bl-none bg-white`}
             placeholder= {language ==='en' ? 'Please enter player ID here' : 'يرجى إدخال معرف اللاعب هنا'}
 
         />
+        <svg
+         className='ssss'
+         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+  </svg>
         {error.appearance && <p className='text-sm font-light mt-1 text-red-600 text-right'>{error.message}</p>}
         <Menubar>
             <MenubarMenu>
