@@ -5,26 +5,32 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
 
-  const [tempLanguage, setTempLanguage] = useState('en');
+  const [tempLanguage, setTempLanguage] = useState('');
   // const [tempLanguage, setTempLanguage] = useState(localStorage.getItem('selectedLanguage') || 'en');
 
   
   const dispatch = useDispatch();
-  const language = useSelector((state) => state.lan.language);
+  const {language} = useSelector((state) => state.lan);
 
   const handleChangeLanguage = (lan) => {
     setTempLanguage(lan);
   };
   const handleSaveLanguage = () => {
-    localStorage.setItem('selectedLanguage', tempLanguage);
+    localStorage.setItem('garena-language', tempLanguage);
     dispatch(changeLan(tempLanguage));
-    console.log(tempLanguage);
+    localStorage.setItem('selectedButton', tempLanguage);
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
+    const savedLanguage = localStorage.getItem('garena-language');
     if (savedLanguage) {
       dispatch(changeLan(savedLanguage));
+      setTempLanguage(savedLanguage);
+    }
+
+    const savedValue = localStorage.getItem('selectedButton');
+    if (savedValue) {
+      setSelectedd(savedValue);
     }
   }, [dispatch]);
 

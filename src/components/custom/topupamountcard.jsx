@@ -140,9 +140,9 @@ const Topupamountcard = () => {
                 <div className=' h-full w-[50%]  py-8 px-10 flex items-end justify-start flex-col max-[760px]:w-full '>
                     <Image src='/assets/icon_ppc.png' alt='icon' height={30} width={30} />
 
-                    <p className=' text-sm text-right
-                     font-medium text-[#757575] font-ar '>
-                    
+                    <p className={`text-sm ${language === 'en' ? 'text-left my-2' : 'text-right'} font-medium text-[#757575] font-ar`}>
+
+                       
                       {language ==='en' ?
                        'You can redeem your Garena voucher here. Garena vouchers can be purchased through our official distributors' : 
                        'يمكنك استبدال رمز قسيمة جارينا من هنا. يمكن شراء قسيمة جارينا من خلال موزعينا الرسمين'}
@@ -161,15 +161,16 @@ const Topupamountcard = () => {
                     </span>
 
                     <div className='w-full'>
-                        <p className=' text-md mr-1  font-normal text-[#28292f] text-right mt-8 font-ar '
-                         dir={language ==='en' ? 'ltr' : 'rtl'}>
+                    <p className={`${language === 'en' ? 'text-left' : 'text-right'} text-md mr-1 font-normal text-[#28292f] mt-8 font-ar`}
+                    dir={language ==='en' ? 'ltr' : 'rtl'}>
                            {language ==='en' ? 
                               "Password for the prepaid Garena card" : "كلمة المرور لبطاقة جارينا المدفوعة مسبقاً"  
                            }
                         </p>
                         <form onSubmit={handleSubmit}>
                             <Input 
-                            value={code} onChange={(e) => setCode(e.target.value)} className='mt-3 text-right font-ar ' 
+                            value={code} onChange={(e) => setCode(e.target.value)} 
+                            className={`${language === 'en' ? 'text-left' : 'text-right'} mt-3 font-ar`} 
                             placeholder= {language ==='en' ? 'Prepaid Garena card password' : 'كلمة مرور بطاقة جارينا المدفوعة مسبقاً'}
                              />
                             {error.appearance && <p className=' text-sm font-light mt-1 text-red-600  text-right'>{error.message}</p>}
