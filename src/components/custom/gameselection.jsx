@@ -22,7 +22,10 @@ const Gameselection = () => {
         language === "ar" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
       }`}
     >
-      <p className=" font-ar  text-2xl font-bold mb-5">اختيار اللعبة</p>
+      <p className=" font-ar  text-2xl font-bold mb-5">
+        {language === "en" ? "Game Selection" : "اختيار اللعبة"}
+        
+        </p>
       <div className="  flex  items-center justify-end gap-8">
         {user.loggedIn ? (
           <>

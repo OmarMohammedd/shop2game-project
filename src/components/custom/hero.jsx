@@ -31,6 +31,7 @@ const Hero = () => {
     return (
       <div className="flex h-full flex-col" style={{paddingTop:"56px"}}>
       <div className="bg-[#151515]">
+        
         <div className="group mx-auto w-full max-w-[1366px] md:py-2.5 lg:py-5">
           <div className="relative flex justify-center pt-[43.478%] md:pt-[19.106%]">
             <div className="scrollbar-none absolute inset-0 flex overflow-auto justify-center">

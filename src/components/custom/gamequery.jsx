@@ -41,16 +41,17 @@ const Gamequery = () => {
       >
         <div className="relative flex items-center overflow-hidden transition-all">
           <div
-            className="absolute h-full w-full rounded-t-lg bg-[#BDBDC5] bg-cover bg-center rtl:-scale-x-100 lg:rounded-lg"
-            style={{
-              backgroundImage:
-                game === "freefire"
-                  ? 'url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/FF-2cb78e7c.jpg")'
-                  : game === "blackclover"
-                  ? 'url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/BCM-cdbb237f.jpg")'
-                  : "none",
-            }}
-          ></div>
+  className={`absolute h-full w-full rounded-t-lg bg-[#BDBDC5] bg-cover bg-center ${game === "freefire" || game === "blackclover" ? "transform scale-x-[-1]" : ""} lg:rounded-lg`}
+  style={{
+    backgroundImage:
+      game === "freefire"
+        ? 'url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/FF-2cb78e7c.jpg")'
+        : game === "blackclover"
+        ? 'url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/BCM-cdbb237f.jpg")'
+        : "none",
+  }}
+></div>
+
 
           <div className="relative flex items-center p-4 lg:p-6">
             <img

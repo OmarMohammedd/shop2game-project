@@ -181,10 +181,11 @@ const Navbar = () => {
 
 
   return (
+
 <header
-  style={{ background: "#fff" }}
+  style={{ background: "#fff", zIndex: "20" }}
   dir={language === 'en' ? 'ltr' : 'rtl'}
-  className="fixed top-0 left-0 right-0 z-10 h-14 border-b border-line/50 bg-bg-base md:h-[60px]"
+  className="fixed top-0 left-0 right-0 z-20 h-14 border-b border-line/50 bg-bg-base md:h-[60px]"
 >
       <div className="mx-auto flex h-full w-full max-w-5xl items-stretch justify-between gap-1 px-3 md:px-4">
         <a className="flex items-center gap-2.5 md:gap-3" href="/">

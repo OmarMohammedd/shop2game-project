@@ -257,7 +257,7 @@ const Topupamountcard = () => {
       handleClick();
     }}
   >
-    {language === 'en' ? 'Buy' : 'شراء'}
+    {language === 'en' ? 'Purchase' : 'شراء'}
   </button>
 </div>
 
@@ -275,9 +275,10 @@ const Topupamountcard = () => {
             fontWeight: "500",
             marginBottom: "10px",
           }}
-          dir={language ==='en' ? "ltr" : "rtl"}
+          dir={language ==='en' ? "ltr" : "ltr"}
         >
-          {language ==='en' ? "Can't proceed card payment for now. Please use another method." : 'لا يمكن إتمام عملية الدفع باستخدام البطاقة الآن. يُرجى استخدام طريقة أخرى'}
+          {/* {language ==='en' ? "Can't proceed card payment for now. Please use another method." : 'لا يمكن إتمام عملية الدفع باستخدام البطاقة الآن. يُرجى استخدام طريقة أخرى'} */}
+           Can't proceed card payment for now. Please use another method.
           
         </div>
       )}
@@ -632,9 +633,10 @@ const Topupamountcard = () => {
        color:"#fff",
        background:"#D81A0D",
        fontWeight: "700",
-       zIndex:"99",
+       zIndex:"0",
     }}
    className="inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11">
+
   <span className="text-lg h-[18px] w-[18px]">
     <svg
       width="1em"
