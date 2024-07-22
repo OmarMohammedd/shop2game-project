@@ -115,7 +115,12 @@ body {
     width: 100vw;
   }
 } */
-
+@media (max-width: 760px) {
+  .fgfg button{
+    width: 100%;
+    margin: auto;
+  }
+}
 
 .oddd {
   width: 270px;
@@ -134,6 +139,9 @@ body {
   .ooddd {
     padding-right: 7px;
     padding-bottom: 7px;
+  }
+  [dir="rtl"] .ooddd {
+     padding: 10px;
   }
  }
 @media (max-width: 500px) {

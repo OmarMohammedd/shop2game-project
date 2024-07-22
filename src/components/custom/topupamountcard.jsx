@@ -375,7 +375,7 @@ const Topupamountcard = () => {
             onClick={() => handleClick('c199')}
             className="relative" role="none" key={card.id}>
               <div
-                className={`group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 sm:min-h-[64px] md:min-h-[72px] ${
+                className={`borrder group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 sm:min-h-[64px] md:min-h-[72px] ${
                   selectedCard === card.id
                     ? 'bg-[rgb(255,244,244,calc(1*1))] outline-[rgb(216,26,13,calc(1*1))] outline-2 -outline-offset-2'
                     : 'bg-bg-unselected outline-box-border'
@@ -632,6 +632,7 @@ const Topupamountcard = () => {
        color:"#fff",
        background:"#D81A0D",
        fontWeight: "700",
+       zIndex:"99",
     }}
    className="inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11">
   <span className="text-lg h-[18px] w-[18px]">
