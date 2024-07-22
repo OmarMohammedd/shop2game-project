@@ -220,6 +220,9 @@ const Playerlogincard = () => {
             onChange={(e) => setUid(e.target.value)}
             className={`oooo font-ar relative w-[400px] max-[736px]:w-full ${language === 'ar' ? 'pr-4' : 'pl-4'} rounded-tl-none rounded-bl-none bg-white`}
             placeholder={placeholderText}
+            style={{
+               
+            }}
         />
         <svg
          className='ssss'

@@ -160,6 +160,19 @@ body {
      padding: 10px;
   }
  }
+ @media (max-width: 737px) {
+  .oooo {
+    width: 250px !important;
+  }
+ }
+ @media (max-width: 520px) {
+  .oooo {
+    width: 100% !important;
+  }
+  .ssss {
+    display: none;
+  }
+ }
 @media (max-width: 500px) {
   .ooddd {
     padding-right: 7px;

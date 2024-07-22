@@ -136,7 +136,7 @@ const Navbar = () => {
       const storedCountry = localStorage.getItem('selectedCountry');
       if (storedCountry) {
         const parsedCountry = JSON.parse(storedCountry);
-        setSelected(parsedCountry);
+        // setSelected(parsedCountry);
       }
     } catch (error) {
       console.error("Error parsing stored country data", error);

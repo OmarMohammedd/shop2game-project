@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -149,137 +149,161 @@ const AddPlayer = () => {
 
 
 const AddRedeemCode = () => {
-    const [redeemcode, setredeemcode] = useState('');
-    const [prize, setPrize] = useState('');
-    const [game, setGame] = useState('freefire');
-    const [cost, setCost] = useState(game === 'freefire' ? 1 : 50);
-    const [loading, setLoading] = useState(false);
+  const [redeemcode, setredeemcode] = useState('');
+  const [prize, setPrize] = useState('');
+  const [game, setGame] = useState('freefire');
+  const [cost, setCost] = useState('1'); 
+  const [loading, setLoading] = useState(false);
 
-    const handleGameTypeChange = (e) => {
-        setGame(e.target.value);
-        // setCost(''); // Reset cost when game type changes
-    };
+  const freefireMappings = {
+      '1': 110,
+      '2': 231,
+      '5': 583,
+      '10': 1188,
+      '20': 2420
+  };
 
-    const handleCostChange = (e) => {
-        setCost(e.target.value);
-    };
+  const blackcloverMappings = {
+      '50': 43,
+      '100': 88,
+      '250': 225,
+      '500': 470,
+      '1000': 980
+  };
 
-    function isNumber(value) {
-        return !isNaN(value);
-    }
+  useEffect(() => {
+      if (game === 'freefire') {
+          setPrize(freefireMappings[cost] || '');
+      } else if (game === 'blackclover') {
+          setPrize(blackcloverMappings[cost] || '');
+      }
+  }, [cost, game]);
 
-    const handlePlayerAdd = async (e) => {
-        e.preventDefault();
-        console.log(redeemcode, cost, prize, game);
+  const handleGameTypeChange = (e) => {
+      setGame(e.target.value);
+      setCost(''); 
+      setPrize(''); 
+  };
 
-        const valid = isNumber(prize);
-        if (!valid) {
-            return alert('Please enter a valid prize');
-        }
+  const handleCostChange = (e) => {
+      setCost(e.target.value);
+  };
 
-        if (redeemcode === '' || !prize || !game) {
-            return alert('All fields are required');
-        }
+  function isNumber(value) {
+      return !isNaN(value);
+  }
 
-        if (redeemcode.length !== 10 || isNaN(redeemcode)) {
-            return alert('Redeem Code must be of 10 digits');
-        }
+  const handlePlayerAdd = async (e) => {
+      e.preventDefault();
+      console.log(redeemcode, cost, prize, game);
 
+      const valid = isNumber(prize);
+      if (!valid) {
+          return alert('Please enter a valid prize');
+      }
 
-        const numPrize = Number(prize);
-        const numCost = Number(cost);
+      if (redeemcode === '' || !prize || !game) {
+          return alert('All fields are required');
+      }
 
-        setLoading(true);
-        try {
-            const response = await fetch('/api/add-code', {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({ code: redeemcode, prize: numPrize, cost: numCost, game })
-            });
+      if (redeemcode.length !== 10 || isNaN(redeemcode)) {
+          return alert('Redeem Code must be of 10 digits');
+      }
 
-            const responseData = await response.json();
-            alert(responseData.message);
+      const numPrize = Number(prize);
+      const numCost = Number(cost);
 
-            if (responseData.success) {
-                setredeemcode('');
-                setPrize('');
-                setCost('');
-                setGame('freefire');
-            }
-        } catch (error) {
-            alert(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+      setLoading(true);
+      try {
+          const response = await fetch('/api/add-code', {
+              headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+              },
+              method: 'POST',
+              body: JSON.stringify({ code: redeemcode, prize: numPrize, cost: numCost, game })
+          });
 
-    return (
-        <div className='mt-20 m-3 px-3 w-[400px] h-fit py-3 rounded-lg shadow-lg border border-[#e5e5e5]'>
-            <h1 className='text-center text-xl font-bold mt-10 font-ar '>إنشاء رمز</h1>
-            <form onSubmit={handlePlayerAdd}>
-                <Input
-                    value={redeemcode}
-                    onChange={(e) => setredeemcode(e.target.value)}
-                    className=' font-ar mt-5'
-                    placeholder='ادخل الرمز'
-                />
-                <select
-                    className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
-                    value={game}
-                    onChange={handleGameTypeChange}
-                >
-                    <option value='freefire'>Freefire</option>
-                    <option value='blackclover'>BlackClover</option>
-                </select>
+          const responseData = await response.json();
+          alert(responseData.message);
 
-                {game === 'freefire' && (
-                    <select
-                        className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
-                        value={cost}
-                        onChange={handleCostChange}
-                    >
-                        <option value='1'>$1</option>
-                        <option value='2'>$2</option>
-                        <option value='5'>$5</option>
-                        <option value='10'>$10</option>
-                        <option value='20'>$20</option>
-                    </select>
-                )}
+          if (responseData.success) {
+              setredeemcode('');
+              setPrize('');
+              setCost('1');
+              setGame('freefire');
+          }
+      } catch (error) {
+          alert(error.message);
+      } finally {
+          setLoading(false);
+      }
+  };
 
-                {game === 'blackclover' && (
-                    <select
-                        className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
-                        value={cost}
-                        onChange={handleCostChange}
-                    >
-                        <option value='50'>50</option>
-                        <option value='100'>100</option>
-                        <option value='250'>250</option>
-                        <option value='500'>500</option>
-                        <option value='1000'>1000</option>
-                    </select>
-                )}
+  return (
+      <div className='mt-20 m-3 px-3 w-[400px] h-fit py-3 rounded-lg shadow-lg border border-[#e5e5e5]'>
+          <h1 className='text-center text-xl font-bold mt-10 font-ar'>إنشاء رمز</h1>
+          <form onSubmit={handlePlayerAdd}>
+              <Input
+                  value={redeemcode}
+                  onChange={(e) => setredeemcode(e.target.value)}
+                  className='font-ar mt-5'
+                  placeholder='ادخل الرمز'
+              />
+              <select
+                  className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
+                  value={game}
+                  onChange={handleGameTypeChange}
+              >
+                  <option value='freefire'>Freefire</option>
+                  <option value='blackclover'>BlackClover</option>
+              </select>
 
-                <Input
-                    value={prize}
-                    onChange={(e) => setPrize(e.target.value)}
-                    className=' font-ar mt-5'
-                    placeholder='أدخل مبلغ الجائزة'
-                />
+              {game === 'freefire' && (
+                  <select
+                      className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
+                      value={cost}
+                      onChange={handleCostChange}
+                  >
+                      <option value='1'>$1</option>
+                      <option value='2'>$2</option>
+                      <option value='5'>$5</option>
+                      <option value='10'>$10</option>
+                      <option value='20'>$20</option>
+                  </select>
+              )}
 
-                <Button
-                    disabled={loading}
-                    type='submit'
-                    variant='custom'
-                    className='w-full rounded-tr-sm rounded-br-sm mt-8'
-                >
-                    {!loading ? 'يُقدِّم' : '...يُقدِّم'}
-                </Button>
-            </form>
-        </div>
-    );
+              {game === 'blackclover' && (
+                  <select
+                      className='w-full px-2 py-2 mt-5 rounded-md shadow-sm border'
+                      value={cost}
+                      onChange={handleCostChange}
+                  >
+                      <option value='50'>50</option>
+                      <option value='100'>100</option>
+                      <option value='250'>250</option>
+                      <option value='500'>500</option>
+                      <option value='1000'>1000</option>
+                  </select>
+              )}
+
+              <Input
+                  value={prize}
+                  readOnly
+                  className='font-ar mt-5'
+                  placeholder='المبلغ'
+                  onChange={(e) => setPrize(e.target.value)}
+              />
+
+              <Button
+                  disabled={loading}
+                  type='submit'
+                  variant='custom'
+                  className='w-full rounded-tr-sm rounded-br-sm mt-8'
+              >
+                  {!loading ? 'يُقدِّم' : '...يُقدِّم'}
+              </Button>
+          </form>
+      </div>
+  );
 };
-
