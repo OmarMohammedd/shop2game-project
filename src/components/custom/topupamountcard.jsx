@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { changeLan } from "@/redux/slices/settingsSlice";
 import { useSelector, useDispatch } from 'react-redux';
-import Buying from './buying';
 
 
 
@@ -213,29 +212,7 @@ const Topupamountcard = () => {
   aria-orientation="horizontal"
   style={{ backgroundColor: 'rgb(244 244 244 / calc(1 * 1))' }}
 >
-  <button
-    className={`w-1/2 rounded-sm p-2.5 text-sm/none font-medium ${
-      toggle ? 'font-bold' : ''
-    }`}
-    id="headlessui-tabs-tab-:r10:"
-    role="tab"
-    type="button"
-    aria-selected={toggle ? "true" : "false"}
-    tabIndex={toggle ? 0 : -1}
-    data-headlessui-state={toggle ? "selected" : ""}
-    aria-controls="headlessui-tabs-panel-:r1j:"
-    style={{
-      backgroundColor: toggle ? 'rgb(255 255 255 / calc(1 * 1))' : 'rgb(244 244 244 / calc(1 * 1))',
-      color: toggle ? 'rgb(216 26 13 / calc(1 * 1))' : 'inherit',
-      fontWeight: toggle ? 700 : 'normal'
-    }}
-    onClick={() => {
-      handleTabClick('tab1');
-      settoggle(true);
-    }}
-  >
-    {language === 'en' ? 'Garena Voucher' : 'قسيمة غارينا'}
-  </button>
+
   <button
     className={`w-1/2 rounded-sm p-2.5 text-sm/none font-medium ${
       !toggle ? 'font-bold' : ''
@@ -258,6 +235,29 @@ const Topupamountcard = () => {
     }}
   >
     {language === 'en' ? 'Purchase' : 'شراء'}
+  </button>
+  <button
+    className={`w-1/2 rounded-sm p-2.5 text-sm/none font-medium ${
+      toggle ? 'font-bold' : ''
+    }`}
+    id="headlessui-tabs-tab-:r10:"
+    role="tab"
+    type="button"
+    aria-selected={toggle ? "true" : "false"}
+    tabIndex={toggle ? 0 : -1}
+    data-headlessui-state={toggle ? "selected" : ""}
+    aria-controls="headlessui-tabs-panel-:r1j:"
+    style={{
+      backgroundColor: toggle ? 'rgb(255 255 255 / calc(1 * 1))' : 'rgb(244 244 244 / calc(1 * 1))',
+      color: toggle ? 'rgb(216 26 13 / calc(1 * 1))' : 'inherit',
+      fontWeight: toggle ? 700 : 'normal'
+    }}
+    onClick={() => {
+      handleTabClick('tab1');
+      settoggle(true);
+    }}
+  >
+    {language === 'en' ? 'Garena Voucher' : 'قسيمة غارينا'}
   </button>
 </div>
 
