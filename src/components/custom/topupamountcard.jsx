@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Input } from '../ui/input';
@@ -142,13 +142,24 @@ const Topupamountcard = () => {
   };
 
   const [showMessage, setShowMessage] = useState(false);
+  const errorMessageRef = useRef(null);
 
   const handleButtonClick = () => {
     setShowMessage(true);
     setTimeout(() => {
       setShowMessage(false);
-    }, 4000); 
+    }, 4000);
   };
+
+  useEffect(() => {
+    if (showMessage && errorMessageRef.current) {
+      errorMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+
+      setTimeout(() => {
+        window.scrollBy(0, -90); 
+      }, 500); 
+    }
+  }, [showMessage]);
 
   const [selected, setSelected] = useState(null);
 
@@ -267,19 +278,19 @@ const Topupamountcard = () => {
 
 
 
-  {showMessage && (
+{showMessage && (
         <div
+        ref={errorMessageRef}
           style={{
             color: "#D81A0D",
             marginTop: "10px",
             fontWeight: "500",
             marginBottom: "10px",
           }}
-          dir={language ==='en' ? "ltr" : "ltr"}
+          dir={language === 'en' ? "ltr" : "ltr"}
         >
-          {/* {language ==='en' ? "Can't proceed card payment for now. Please use another method." : 'لا يمكن إتمام عملية الدفع باستخدام البطاقة الآن. يُرجى استخدام طريقة أخرى'} */}
-           Can't proceed card payment for now. Please use another method.
-          
+          {/* {language === 'en' ? "Can't proceed card payment for now. Please use another method." : 'The payment cannot be completed using the card now. Please use another method'} */}
+          Can't proceed card payment for now. Please use another method.
         </div>
       )}
 
