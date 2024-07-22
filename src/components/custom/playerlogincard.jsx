@@ -322,7 +322,7 @@ const Playerlogincard = () => {
     </div>
 
                     </div>
-                </div>
+</div>
             ) : (
                 <div className='w-fit max-[736px]:w-full h-fit bg-[#eee] rounded-lg mt-5 gap-5 border-[#e5e7eb] border flex flex-col items-end py-4 pb-6 px-8 justify-center'>
                     <div className='hover:cursor-pointer w-full flex items-center gap-20 justify-between px-2 py-2'>

@@ -11,22 +11,17 @@ const Gameselection = () => {
 
   return (
     <div
-      style={{
-
-        backgroundImage: `url("/assets/game-selection-bg.png")`,
-        direction: language === "ar" ? "ltr" : "rtl",
-      }}
-      className={`  bg-[#efefef] w-full h-[200px]  flex items-end flex-col justify-center pt-6   ${
-        language === "ar" ? "pr-[310px]" : "pl-[310px]"
-      } ${language === "ar" ? "max-[1390px]:pr-20" : " max-[1390px]:pl-20"}  ${
-        language === "ar" ? "max-[1100px]:pr-5" : " max-[1100px]:pl-5"
-      }`}
-    >
-      <p className=" font-ar  text-2xl font-bold mb-5">
+    style={{
+      backgroundImage: 'url("/assets/game-selection-bg.png")',
+      direction: language === "ar" ? "ltr" : "rtl",
+    }}
+    className="bg-[#efefef] w-full h-[200px] flex items-end flex-col justify-center pt-6"
+  >
+    <div className="mx-auto flex flex-col w-full max-w-5xl items-end justify-between px-3 md:px-4">
+      <p className="font-ar text-2xl font-bold mb-5">
         {language === "en" ? "Game Selection" : "اختيار اللعبة"}
-        
-        </p>
-      <div className="  flex  items-center justify-end gap-8">
+      </p>
+      <div className="flex items-center justify-end gap-8">
         {user.loggedIn ? (
           <>
             {user.game === "blackclover" ? (
@@ -35,9 +30,8 @@ const Gameselection = () => {
                 className="flex items-center gap-2 justify-center flex-col"
               >
                 <Image
-                  className={` ${
-                    game === "blackclover" &&
-                    "border-4 rounded-[20px] border-[#d81a0d]"
+                  className={`${
+                    game === "blackclover" && "border-4 rounded-[20px] border-[#d81a0d]"
                   } hover:cursor-pointer`}
                   src="/assets/blackclover-selector.png"
                   alt="selector"
@@ -60,9 +54,8 @@ const Gameselection = () => {
                 className="flex items-center gap-2 justify-center flex-col"
               >
                 <Image
-                  className={` ${
-                    game === "freefire" &&
-                    "border-4 rounded-[20px] border-[#d81a0d]"
+                  className={`${
+                    game === "freefire" && "border-4 rounded-[20px] border-[#d81a0d]"
                   } hover:cursor-pointer`}
                   src="/assets/freefire-selector.png"
                   alt="selector"
@@ -88,9 +81,8 @@ const Gameselection = () => {
               className="flex items-center gap-2 justify-center flex-col"
             >
               <Image
-                className={` ${
-                  game === "blackclover" &&
-                  "border-4 rounded-[20px] border-[#d81a0d]"
+                className={`${
+                  game === "blackclover" && "border-4 rounded-[20px] border-[#d81a0d]"
                 } hover:cursor-pointer`}
                 src="/assets/blackclover-selector.png"
                 alt="selector"
@@ -112,9 +104,8 @@ const Gameselection = () => {
               className="flex items-center gap-2 justify-center flex-col"
             >
               <Image
-                className={` ${
-                  game === "freefire" &&
-                  "border-4 rounded-[20px] border-[#d81a0d]"
+                className={`${
+                  game === "freefire" && "border-4 rounded-[20px] border-[#d81a0d]"
                 } hover:cursor-pointer`}
                 src="/assets/freefire-selector.png"
                 alt="selector"
@@ -124,7 +115,7 @@ const Gameselection = () => {
               <p
                 className={
                   game === "freefire"
-                    ? " font-custom font-semibold text-[#d81a0d]"
+                    ? "font-custom font-semibold text-[#d81a0d]"
                     : "font-custom font-[500] text-[15px]"
                 }
               >
@@ -135,6 +126,7 @@ const Gameselection = () => {
         )}
       </div>
     </div>
+  </div>
   );
 };
 

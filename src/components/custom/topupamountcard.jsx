@@ -204,7 +204,7 @@ const Topupamountcard = () => {
             
 
       
-            <div
+<div
   dir={language === 'en' ? "ltr" : "rtl"}
   className="nowarp mt-5 fgfg
     w-[1000px] max-[760px]:items-start max-[1100px]:w-full max-[760px]:flex-col max-[760px]:h-fit
@@ -376,9 +376,9 @@ const Topupamountcard = () => {
             onClick={() => handleClick('c199')}
             className="relative" role="none" key={card.id}>
               <div
-                className={`borrder group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 sm:min-h-[64px] md:min-h-[72px] ${
+                className={`borrder group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 outline-gray-200 sm:min-h-[64px] md:min-h-[72px] ${
                   selectedCard === card.id
-                    ? 'bg-[rgb(255,244,244,calc(1*1))] outline-[rgb(216,26,13,calc(1*1))] outline-2 -outline-offset-2'
+                    ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
                     : 'bg-bg-unselected outline-box-border'
                 }`}
                 id={`headlessui-radiogroup-option-${card.id}`}
@@ -426,10 +426,10 @@ const Topupamountcard = () => {
               onClick={() => handleClick('chan')}
                key={card.id} className="relative" role="none">
                 <div
-                  className={`group peer relative flex h-full cursor-pointer flex-col items-center rounded-md p-1.5 pb-2 outline outline-1 -outline-offset-1 outline-box-border ${
+                  className={`group peer relative flex h-full cursor-pointer flex-col items-center rounded-md p-1.5 pb-2 outline outline-1 outline-gray-200 outline-box-border ${
                     activeCard === card.id
-                      ? 'bg-[rgba(255,244,244,calc(1*1))] outline-[rgba(216,26,13,calc(1*1))] outline-2 -outline-offset-2'
-                      : 'bg-bg-unselected ui-checked:bg-bg-selected ui-checked:outline-2 ui-checked:-outline-offset-2 ui-checked:outline-primary-red'
+                      ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
+                    : 'bg-bg-unselected outline-box-border'
                   }`}
                   id={`headlessui-radiogroup-option-${card.id}`}
                   role="radio"
@@ -537,10 +537,9 @@ const Topupamountcard = () => {
           <div className="relative oddd">
       <div className="relative scroll-mt-40">
         <div
-          className={`group peer relative flex h-full min-h-[80px] cursor-pointer items-start gap-2 rounded-md 
-            ${selected === 'channel-230199' ? 
-              'bg-[rgba(255,244,244,calc(1*1))] outline-[rgba(216,26,13,calc(1*1))] outline-2 -outline-offset-2 border border-red-500' : 
-              'bg-bg-unselected outline outline-1 -outline-offset-1 outline-box-border'} 
+          className={`mb-2 outline outline-1 outline-gray-200 group peer relative flex h-full min-h-[80px] cursor-pointer items-start gap-2 rounded-md 
+            ${selected === 'channel-230199'? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
+                    : 'bg-bg-unselected outline-box-border'} 
             max-md:flex-col max-md:justify-center md:items-center md:gap-3 md:p-3`}
           id="channel-230199 headlessui-radiogroup-option-:r32:"
           role="radio"
