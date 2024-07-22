@@ -208,7 +208,8 @@ const Playerlogincard = () => {
 </div>
 
 
-<div dir={language ==='en' ? 'rtl' : 'ltr'} className='w-full flex max-[736px]:w-full'>
+<div >
+<div dir={language ==='ar' ? 'rtl' : 'ltr'}  className='w-full flex max-[736px]:w-full'>
     <Button disabled={loading} onClick={handlePlayerLogin} variant='custom' size='custom'>
     {loading ? (language === 'en' ? 'Login ...' : '... تسجيل الدخول') : (language === 'en' ? 'Login' : 'تسجيل الدخول')}
     </Button>
@@ -255,11 +256,12 @@ const Playerlogincard = () => {
         </Menubar>
     </div>
 </div>
+</div>
 
 
 
 
-<div dir={language ==='en' ? 'ltr' : 'rtl'} style={{width:"100%"}} className="relative flex flex-col items-center gap-4 text-xs/normal text-text-secondary md:text-sm/[22px]">
+<div dir={language ==='ar' ? 'ltr' : 'rtl'} style={{width:"100%"}} className="relative flex flex-col items-center gap-4 text-xs/normal text-text-secondary md:text-sm/[22px]">
       <div className="flex items-center justify-between w-full mb-4">
         <span className="flex-1">
           
