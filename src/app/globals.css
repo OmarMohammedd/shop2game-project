@@ -149,6 +149,9 @@ body {
   border-radius: .125rem;
  }
  @media (max-width: 768px) {
+  .oddd {
+     padding-right: 13px;
+  }
   .ooddd {
     padding-right: 7px;
     padding-bottom: 7px;

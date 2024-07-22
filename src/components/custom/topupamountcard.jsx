@@ -90,14 +90,14 @@ const Topupamountcard = () => {
     const [selectedCard, setSelectedCard] = useState(null);
 
   const cards = [
-    { id: 1, value: 530 },
-    { id: 2, value: 1080 },
-    { id: 3, value: 2200 },
-    { id: 4, value: 5600 },
+    { id: 1, value: 530, price: 5, reward:53 },
+    { id: 2, value: 1080, price: 10, reward:108 },
+    { id: 3, value: 2200, price: 20, reward:220 },
+    { id: 4, value: 5600, price: 50, reward:560 },
   ];
 
-  const handleCardClick = (id) => {
-    setSelectedCard(id);
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
   };
 
 
@@ -109,24 +109,28 @@ const Topupamountcard = () => {
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/000/002/logo.png',
       altText: 'Weekly Membership',
       title: 'Weekly Membership',
+      price: 2,
     },
     {
       id: 'r1d',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/081/041/logo.png',
       altText: 'Monthly Membership',
       title: 'Monthly Membership',
+      price: 10,
     },
     {
       id: 'r1f',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/002/058/logo.png',
       altText: 'بطاقة رفع المستوى',
-      title: language ==='en' ? "Level Up Pass" : "بطاقة رفع المستوى'",
+      title: language ==='en' ? "Level Up Pass" : "بطاقة رفع المستوى",
+      price: 0.99,
     },
     {
       id: 'r1h',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/item/0803/000/000/logo.png',
       altText: 'تصريح بوياه',
-      title: language ==='en' ? "Booyah Pass Card" : "تصريح بوياه'",
+      title: language ==='en' ? "Booyah Pass Card" : "تصريح بوياه",
+      price: 3,
     },
   ];
 
@@ -179,7 +183,10 @@ const Topupamountcard = () => {
     settoggle(selected);
     setShowButton(false); 
   }
-
+  const [latestCard, setLatestCard] = useState(null);
+  const handleCardClicck = (card) => {
+    setLatestCard(card);
+  };
 
     return (
         <div dir={language ==='en' ? 'rtl' : 'ltr'} 
@@ -377,104 +384,110 @@ const Topupamountcard = () => {
 
 
 <div className="flex flex-col empty:hidden" role="none">
-      <div className="flex flex-col gap-4 empty:hidden" role="none">
-        <div
-          className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 md:grid-cols-6 md:gap-4 empty:hidden"
-          role="none"
-        >
-          {cards.map((card) => (
-            <div 
-            onClick={() => handleClick('c199')}
-            className="relative" role="none" key={card.id}>
+        <div className="flex flex-col gap-4 empty:hidden" role="none">
+          <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 md:grid-cols-6 md:gap-4 empty:hidden" role="none">
+            {cards.map((card) => (
               <div
-                className={`borrder group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 outline-gray-200 sm:min-h-[64px] md:min-h-[72px] ${
-                  selectedCard === card.id
-                    ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
-                    : 'bg-bg-unselected outline-box-border'
-                }`}
-                id={`headlessui-radiogroup-option-${card.id}`}
-                role="radio"
-                aria-checked={selectedCard === card.id}
-                tabIndex={0}
-                onClick={() => handleCardClick(card.id)}
+                onClick={() => handleCardClicck(card)}
+                key={card.id}
+                className="relative"
+                role="none"
               >
-                <div className="flex items-center group-aria-disabled:opacity-[.45]">
-                  <img
-                    className="me-1 h-3 w-3 object-contain md:h-4 md:w-4"
-                    src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
-                    alt="Diamond"
-                  />
-                  <span className="text-sm/none font-medium md:text-lg/none">
-                    {card.value}
-                  </span>
-                </div>
-              </div>
-              <div
-                className="absolute inset-0 hidden cursor-pointer peer-aria-checked:block"
-                id={`headlessui-radiogroup-option-${card.id}`}
-                role="radio"
-                aria-checked={selectedCard === card.id}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <div className="flex flex-col empty:hidden" role="none">
-      <div className="flex flex-col gap-4 empty:hidden" role="none">
-        <div role="none">
-          <div className="mb-2 flex items-center" role="none">
-            <div className="text-base/none font-bold text-text-secondary" role="none">
-            
-              {language ==='en' ? 'Special Offers' : 'العروض الخاصة'}
-            </div>
-            <hr className="ms-2 grow border-line" role="none" />
-          </div>
-          <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4" role="none">
-            {cardss.map((card) => (
-              <div
-              onClick={() => handleClick('chan')}
-               key={card.id} className="relative" role="none">
                 <div
-                  className={`group peer relative flex h-full cursor-pointer flex-col items-center rounded-md p-1.5 pb-2 outline outline-1 outline-gray-200 outline-box-border ${
-                    activeCard === card.id
+                  className={`borrder group peer relative flex min-h-[50px] cursor-pointer flex-col items-center justify-center rounded-md outline outline-1 outline-gray-200 sm:min-h-[64px] md:min-h-[72px] ${
+                    latestCard?.id === card.id
                       ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
-                    : 'bg-bg-unselected outline-box-border'
+                      : 'bg-bg-unselected outline-box-border'
                   }`}
                   id={`headlessui-radiogroup-option-${card.id}`}
                   role="radio"
-                  aria-checked={activeCard === card.id}
-                  tabIndex={-1}
-                  data-headlessui-state=""
-                  onClick={() => handleCardClickk(card.id)}
+                  aria-checked={latestCard?.id === card.id}
+                  tabIndex={0}
+                  onClick={() => handleCardClick(card)}
                 >
-                  <div className="relative mb-2 w-full overflow-hidden rounded-sm pt-[56.25%]">
+                  <div className="flex items-center group-aria-disabled:opacity-[.45]">
                     <img
-                      className="pointer-events-none absolute inset-0 h-full w-full object-cover group-aria-disabled:opacity-[.45]"
-                      src={card.imgSrc}
-                      alt={card.altText}
+                      className="me-1 h-3 w-3 object-contain md:h-4 md:w-4"
+                      src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
+                      alt="Diamond"
                     />
-                  </div>
-                  <div className="line-clamp-2 text-center text-sm/[18px] font-medium group-aria-disabled:opacity-[.45]">
-                    {card.title}
+                    <span className="text-sm/none font-medium md:text-lg/none">
+                      {card.value}
+                    </span>
                   </div>
                 </div>
                 <div
-                  className={`absolute inset-0 ${
-                    activeCard === card.id ? 'block' : 'hidden'
-                  } cursor-pointer peer-aria-checked:block`}
+                  className={`absolute inset-0 hidden cursor-pointer peer-aria-checked:block`}
                   id={`headlessui-radiogroup-option-${card.id}`}
                   role="radio"
-                  aria-checked={activeCard === card.id}
-                  data-headlessui-state=""
+                  aria-checked={latestCard?.id === card.id}
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+
+
+<div className="flex flex-col empty:hidden" role="none">
+        <div className="flex flex-col gap-4 empty:hidden" role="none">
+          <div role="none">
+            <div className="mb-2 flex items-center" role="none">
+              <div className="text-base/none font-bold text-text-secondary" role="none">
+                {language === 'en' ? 'Special Offers' : 'العروض الخاصة'}
+              </div>
+              <hr className="ms-2 grow border-line" role="none" />
+            </div>
+            <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4 md:gap-4" role="none">
+              {cardss.map((card) => (
+                <div
+                  onClick={() => handleCardClicck(card)}
+                  key={card.id}
+                  className="relative"
+                  role="none"
+                >
+                  <div
+                    className={`group peer relative flex h-full cursor-pointer flex-col items-center rounded-md p-1.5 pb-2 outline outline-1 outline-gray-200 outline-box-border ${
+                      latestCard?.id === card.id
+                        ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2'
+                        : 'bg-bg-unselected outline-box-border'
+                    }`}
+                    id={`headlessui-radiogroup-option-${card.id}`}
+                    role="radio"
+                    aria-checked={latestCard?.id === card.id}
+                    tabIndex={-1}
+                    data-headlessui-state=""
+                  >
+                    <div className="relative mb-2 w-full overflow-hidden rounded-sm pt-[56.25%]">
+                      <img
+                        className="pointer-events-none absolute inset-0 h-full w-full object-cover group-aria-disabled:opacity-[.45]"
+                        src={card.imgSrc}
+                        alt={card.altText}
+                      />
+                    </div>
+                    <div className="line-clamp-2 text-center text-sm/[18px] font-medium group-aria-disabled:opacity-[.45]">
+                      {card.title}
+                    </div>
+                  </div>
+                  <div
+                    className={`absolute inset-0 ${
+                      latestCard?.id === card.id ? 'block' : 'hidden'
+                    } cursor-pointer peer-aria-checked:block`}
+                    id={`headlessui-radiogroup-option-${card.id}`}
+                    role="radio"
+                    aria-checked={latestCard?.id === card.id}
+                    data-headlessui-state=""
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    
                 
               </div>
             </div>
@@ -545,70 +558,74 @@ const Topupamountcard = () => {
 
 
 
-          <div className="relative oddd">
-      <div className="relative scroll-mt-40">
-        <div
-          className={`mb-2 outline outline-1 outline-gray-200 group peer relative flex h-full min-h-[80px] cursor-pointer items-start gap-2 rounded-md 
-            ${selected === 'channel-230199'? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
-                    : 'bg-bg-unselected outline-box-border'} 
-            max-md:flex-col max-md:justify-center md:items-center md:gap-3 md:p-3`}
-          id="channel-230199 headlessui-radiogroup-option-:r32:"
-          role="radio"
-          aria-checked={selected === 'channel-230199'}
-          tabIndex={0}
-          onClick={() => handleClick('channel-230199')}
-        >
-          <img
-            className="pointer-events-none h-10 w-full object-contain object-left group-aria-disabled:[mix-blend-mode:luminosity] rtl:object-right dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14"
-            src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
-            alt="Visa/MasterCard"
-          />
-          <div className="ooddd flex w-full flex-wrap gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
-            <span className="relative">
-              <span className="items-center [text-decoration:inherit] inline-flex">
-                US$ 20
-              </span>
-            </span>
-            <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
-              <span>
-                
-                {language ==='en' ? '+ Bonus 220' : '+ مكافأة 220'}
-                </span>
-              <img
-                className="h-3 w-3 object-contain"
-                src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
-                alt="Bonus"
-              />
-            </span>
-          </div>
+ <div className="relative">
+  <div className="relative scroll-mt-40 ">
+    <div
+      className={`oddd mb-2 outline outline-1 outline-gray-200 group peer relative flex h-full min-h-[80px] cursor-pointer items-start gap-2 rounded-md 
+        ${selected === 'channel-230199' ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
+          : 'bg-bg-unselected outline-box-border'} 
+        max-md:flex-col max-md:justify-center md:items-center md:gap-3 md:p-3`}
+      id="channel-230199 headlessui-radiogroup-option-:r32:"
+      role="radio"
+      aria-checked={selected === 'channel-230199'}
+      tabIndex={0}
+      onClick={() => handleClick('channel-230199')}
+    >
+      <img
+        className="pointer-events-none h-10 w-full object-contain object-left group-aria-disabled:[mix-blend-mode:luminosity] rtl:object-right dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14"
+        src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
+        alt="Visa/MasterCard"
+        style={{
+           height: "50px"
+        }}
+      />
+      <div className="ooddd flex w-full flex-wrap gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
+        <span className="relative">
+          <span className="items-center [text-decoration:inherit] inline-flex">
+            US$ {latestCard ? latestCard.price : ''}
+          </span>
+        </span>
+{latestCard && !latestCard.isSecondSession && latestCard.reward !== undefined && (
+   <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
+    <span>
+      {language === 'en'
+        ? `+ Bonus ${latestCard.reward}`
+        : `+ مكافأة ${latestCard.reward}`}
+    </span>
+    <img
+      className="h-3 w-3 object-contain"
+      src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
+      alt="Bonus"
+    />
+  </span>
+)}
+
+      </div>
+      <div className="absolute end-[3px] top-[3px] overflow-hidden rounded-[3px]">
+        <div className="flex text-2xs/none font-bold uppercase">
           <div
-            className="absolute end-[3px] top-[3px] overflow-hidden rounded-[3px]"
+            style={{ backgroundColor: "rgb(230 37 45 / calc(1 * 1))" }}
+            className="h-4 flex items-center gap-1 bg-bg-tag-promo p-0.5 pe-1 text-white"
           >
-            <div className="flex text-2xs/none font-bold uppercase">
-              <div
-                style={{backgroundColor: "rgb(230 37 45 / calc(1 * 1))"}}
-                className="h-4 flex items-center gap-1 bg-bg-tag-promo p-0.5 pe-1 text-white"
-              >
-                <img
-                  className="h-3 w-3 rounded-sm bg-white object-contain p-0.5"
-                  src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
-                  alt="Special Offer"
-                />
-              
-                {language ==='en' ? 'Special Offer' : 'عرض خاص'}
-              </div>
-            </div>
+            <img
+              className="h-3 w-3 rounded-sm bg-white object-contain p-0.5"
+              src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
+              alt="Special Offer"
+            />
+            {language === 'en' ? 'PROMO' : 'عرض خاص'}
           </div>
         </div>
-        <div
-          className="absolute inset-0 hidden cursor-pointer peer-aria-checked:block"
-          id="headlessui-radiogroup-option-:r33:"
-          role="radio"
-          aria-checked={selected === 'channel-230199'}
-        />
       </div>
-      
     </div>
+    <div
+      className="absolute inset-0 hidden cursor-pointer peer-aria-checked:block"
+      id="headlessui-radiogroup-option-:r33:"
+      role="radio"
+      aria-checked={selected === 'channel-230199'}
+    />
+  </div>
+</div>
+
 
           
         </div>
@@ -620,20 +637,32 @@ const Topupamountcard = () => {
           {showButton && (
   <div dir= {language ==='en'? "ltr":"rtl"} className="fdds sticky inset-x-0 bottom-0 z-10" data-headlessui-state="">
   <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 border-t border-line/50 bg-bg-base p-4 md:justify-end md:gap-10 md:border-none lg:px-10">
-    <div className="flex flex-col md:items-end">
-      <div className="flex items-center gap-1 text-sm/none font-bold md:text-end md:text-base/none">
-        <span>Monthly Membership</span>
+
+  <div className="flex flex-col md:items-end">
+        <div className="flex items-center gap-1 text-sm/none font-bold md:text-end md:text-base/none">
+          <span className='flex items-center gap-1'>
+            {latestCard?.value ? (
+              <>
+                <img className="h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
+                {latestCard.value} + {latestCard.reward}
+              </>
+            ) : (
+              ''
+            )}
+            <span>{latestCard?.title || ''}</span>
+          </span>
+        </div>
+        <div className="mt-2 flex items-center gap-1 text-sm/none md:text-end md:text-base/none">
+          <span className="font-medium">
+            {language === 'en' ? 'Sum:' : 'المجموع:'}
+          </span>
+          <span className="items-center [text-decoration:inherit] flex font-bold text-text-content2">
+            {latestCard?.price ? `US$ ${latestCard.price}` : 'Price in US dollars'}
+          </span>
+        </div>
       </div>
-      <div className="mt-2 flex items-center gap-1 text-sm/none md:text-end md:text-base/none">
-        <span className="font-medium">
-      
-        {language ==='en' ? 'Sum:' : 'المجموع:'}
-        </span>
-        <span className="items-center [text-decoration:inherit] flex font-bold text-text-content2">
-          US$ 20
-        </span>
-      </div>
-    </div>
+  
+    
 
 
     
