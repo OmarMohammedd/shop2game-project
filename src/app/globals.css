@@ -116,7 +116,31 @@ body {
   }
 } */
 
+
+.oddd {
+  width: 270px;
+}
+.fdds {
+  background-color: #fff;
+}
+
+ .fgfg button {
+  font-size: 17px;
+  line-height: 1;
+  padding: .625rem;
+  border-radius: .125rem;
+ }
+ @media (max-width: 768px) {
+  .ooddd {
+    padding-right: 7px;
+    padding-bottom: 7px;
+  }
+ }
 @media (max-width: 500px) {
+  .ooddd {
+    padding-right: 7px;
+    padding-bottom: 7px;
+  }
   .ssss {
     display: none;
   }
