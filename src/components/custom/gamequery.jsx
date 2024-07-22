@@ -36,7 +36,7 @@ const Gamequery = () => {
           <div
             className={`absolute h-full w-full rounded-t-lg bg-[#BDBDC5] bg-cover bg-center ${
               game === "freefire" || game === "blackclover"
-                ? "transform scale-x-[-1]"
+                ? language === "ar" ? "transform scale-x-[-1]": ""
                 : ""
             } lg:rounded-lg`}
             style={{
