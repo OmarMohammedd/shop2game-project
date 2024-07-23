@@ -570,27 +570,34 @@ const Topupamountcard = () => {
       tabIndex={0}
       onClick={() => handleClick('channel-230199')}
     >
+
       
-      <div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
-        <span className="relative">
-          <span
-           style={{color:"#dd4245"}}
-           className="mb-1 items-center [text-decoration:inherit] inline-flex">
-              {/* {latestCard ? latestCard.price : ''} */}
-              ooredoo
-          </span>
-        </span>
+  <div
+   className='flex items-center gap-2 smmmm' >
+  <img   
+        className="imagee pointer-events-none h-10 w-full object-contain object-left group-aria-disabled:[mix-blend-mode:luminosity] rtl:object-right dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14"
+        src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
+        alt="Visa/MasterCard"
+        style={{
+           height: "50px",
+        }}
+      />
+
+      <div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:text-base/none">
+      
 
 
         {latestCard && (
-  <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
+  <span className="ooee flex flex-col items-start gap-2 text-sm/none text-bonus">
     {latestCard.price && (
+
+      
       <span>
          {latestCard.price}
       </span>
     )}
     {!latestCard.isSecondSession && latestCard.reward !== undefined && (
-      <>
+      <div className='flex items-center gap-1'>
         <span style={{ color: "#f4841a" }}>
           {language === 'en'
             ? ` + Bonus ${latestCard.reward}`
@@ -601,18 +608,24 @@ const Topupamountcard = () => {
           src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
           alt="Bonus"
         />
-      </>
+      </div>
     )}
   </span>
 )}
 
 
       </div>
+  </div>
+
       <div className="absolute end-[3px] top-[3px] overflow-hidden rounded-[3px]">
         <div className="flex text-2xs/none font-bold uppercase">
           <div
-            style={{ backgroundColor: "rgb(230 37 45 / calc(1 * 1))" }}
+            style={{ backgroundColor: "rgb(230 37 45 / calc(1 * 1))",
+              fontWeight:"500",
+              fontSize:"12px"
+             }}
             className="h-4 flex items-center gap-1 bg-bg-tag-promo p-0.5 pe-1 text-white"
+
           >
             <img
               className="h-3 w-3 rounded-sm bg-white object-contain p-0.5"
@@ -641,7 +654,7 @@ const Topupamountcard = () => {
       </div>
       )}
           
-          {/* {showButton && (
+          {showButton && (
   <div dir= {language ==='en'? "ltr":"rtl"} className="fdds sticky inset-x-0 bottom-0 z-10" data-headlessui-state="">
   <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 border-t border-line/50 bg-bg-base p-4 md:justify-end md:gap-10 md:border-none lg:px-10">
 
@@ -706,7 +719,7 @@ const Topupamountcard = () => {
 
   </div>
 </div>
-)} */}
+)}
 
         </div>
     );

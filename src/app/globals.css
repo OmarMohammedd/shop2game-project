@@ -148,7 +148,23 @@ body {
   padding: .625rem;
   border-radius: .125rem;
  }
+
+
+ 
  @media (max-width: 768px) {
+  .ooee {
+    flex-direction: row !important;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .smmmm{
+    flex-direction: column !important;
+    gap: 2px !important;
+    padding: 10px;
+  }
+  .imagee {
+    height: 45px !important;
+  }
   .oddd {
      padding-right: 13px;
   }
@@ -160,6 +176,7 @@ body {
      padding: 10px;
   }
  }
+ 
  @media (max-width: 737px) {
   .oooo {
     width: 250px !important;
