@@ -575,13 +575,14 @@ const Topupamountcard = () => {
   <div
    className='flex items-center gap-2 smmmm' >
   <img   
-        className="imagee pointer-events-none h-10 w-full object-contain object-left group-aria-disabled:[mix-blend-mode:luminosity] rtl:object-right dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14"
-        src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
-        alt="Visa/MasterCard"
-        style={{
-           height: "50px",
-        }}
-      />
+    className={`pointer-events-none h-10 object-contain dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14 ${language === 'en' ? 'mr-auto' : 'ml-auto'}`}
+    src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
+    alt="Visa/MasterCard"
+    style={{
+      height: "50px",
+      width: "50px"
+    }}
+  />
 
       <div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:text-base/none">
       
