@@ -89,11 +89,13 @@ const Topupamountcard = () => {
 
     const [selectedCard, setSelectedCard] = useState(null);
 
+  
+
   const cards = [
-    { id: 1, value: 530, price: 5, reward:53 },
-    { id: 2, value: 1080, price: 10, reward:108 },
-    { id: 3, value: 2200, price: 20, reward:220 },
-    { id: 4, value: 5600, price: 50, reward:560 },
+    { id: 1, value: 50, price: "TND 1.95", reward:5 },
+    { id: 2, value: 100, price: "TND 3.7", reward:10 },
+    { id: 3, value: 210, price: "TND 7.4", reward:21 },
+    { id: 4, value: 530, price: "TND 18.5", reward:53 },
   ];
 
   const handleCardClick = (card) => {
@@ -105,32 +107,18 @@ const Topupamountcard = () => {
 
   const cardss = [
     {
-      id: 'r1b',
-      imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/000/002/logo.png',
-      altText: 'Weekly Membership',
-      title: 'Weekly Membership',
-      price: 2,
-    },
-    {
-      id: 'r1d',
-      imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/081/041/logo.png',
-      altText: 'Monthly Membership',
-      title: 'Monthly Membership',
-      price: 10,
-    },
-    {
       id: 'r1f',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/002/058/logo.png',
       altText: 'بطاقة رفع المستوى',
       title: language ==='en' ? "Level Up Pass" : "بطاقة رفع المستوى",
-      price: 0.99,
+      price: "US$ 0.99",
     },
     {
       id: 'r1h',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/item/0803/000/000/logo.png',
       altText: 'تصريح بوياه',
       title: language ==='en' ? "Booyah Pass Card" : "تصريح بوياه",
-      price: 3,
+      price: "US$ 3",
     },
   ];
 
@@ -144,6 +132,9 @@ const Topupamountcard = () => {
   const handleCardClickkkk = (id) => {
     setSelectedId(id);
   };
+
+
+  
 
   const [showMessage, setShowMessage] = useState(false);
   const errorMessageRef = useRef(null);
@@ -183,7 +174,10 @@ const Topupamountcard = () => {
     settoggle(selected);
     setShowButton(false); 
   }
-  const [latestCard, setLatestCard] = useState(null);
+
+
+  const [latestCard, setLatestCard] = useState(cards.find(card => card.id === 1));
+  
   const handleCardClicck = (card) => {
     setLatestCard(card);
   };
@@ -303,7 +297,7 @@ const Topupamountcard = () => {
 
 
   {toggle === true ? (
-        <div className='w-[1000px] max-[760px]:items-start h-[450px] flex border border-[#eeeeee] mt-5 max-[1100px]:w-full max-[760px]:flex-col max-[760px]:h-fit'>
+        <div className='w-[1000px] max-[760px]:items-start h-[450px] flex border border-[#eeeeee] mt-5 max-[1100px]:w-full max-[760px]:flex-col-reverse max-[760px]:h-fit'>
           <div className='h-full w-[50%] flex flex-col items-center justify-between py-8 px-10 max-[760px]:w-full max-[760px]:gap-5'>
             {game === 'freefire' &&
               freefiredata?.map((offer) => {
@@ -322,7 +316,10 @@ const Topupamountcard = () => {
             }
           </div>
           <div className='h-full w-[50%] py-8 px-10 flex items-end justify-start flex-col max-[760px]:w-full'>
-            <Image src='/assets/icon_ppc.png' alt='icon' height={30} width={30} />
+
+          <img class="h-[50px] w-[50px] object-contain" src="https://cdn-gop.garenanow.com/webmain/static/open_platform/images/icon_ppc.png"/>
+
+
 
             <p className={`text-sm ${language === 'en' ? 'text-left my-2' : 'text-right'} font-medium text-[#757575] font-ar`}>
               {language === 'en' ?
@@ -433,7 +430,9 @@ const Topupamountcard = () => {
         <div className="flex flex-col gap-4 empty:hidden" role="none">
           <div role="none">
             <div className="mb-2 flex items-center" role="none">
-              <div className="text-base/none font-bold text-text-secondary" role="none">
+              <div 
+              style={{color:"#757575"}}
+              className="text-base/none font-bold text-text-secondary" role="none">
                 {language === 'en' ? 'Special Offers' : 'العروض الخاصة'}
               </div>
               <hr className="ms-2 grow border-line" role="none" />
@@ -571,34 +570,42 @@ const Topupamountcard = () => {
       tabIndex={0}
       onClick={() => handleClick('channel-230199')}
     >
-      <img
-        className="pointer-events-none h-10 w-full object-contain object-left group-aria-disabled:[mix-blend-mode:luminosity] rtl:object-right dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14"
-        src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
-        alt="Visa/MasterCard"
-        style={{
-           height: "50px"
-        }}
-      />
-      <div className="ooddd flex w-full flex-wrap gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
+      
+      <div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
         <span className="relative">
-          <span className="items-center [text-decoration:inherit] inline-flex">
-            US$ {latestCard ? latestCard.price : ''}
+          <span
+           style={{color:"#dd4245"}}
+           className="mb-1 items-center [text-decoration:inherit] inline-flex">
+              {/* {latestCard ? latestCard.price : ''} */}
+              ooredoo
           </span>
         </span>
-{latestCard && !latestCard.isSecondSession && latestCard.reward !== undefined && (
-   <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
-    <span>
-      {language === 'en'
-        ? `+ Bonus ${latestCard.reward}`
-        : `+ مكافأة ${latestCard.reward}`}
-    </span>
-    <img
-      className="h-3 w-3 object-contain"
-      src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
-      alt="Bonus"
-    />
+
+
+        {latestCard && (
+  <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
+    {latestCard.price && (
+      <span>
+         {latestCard.price}
+      </span>
+    )}
+    {!latestCard.isSecondSession && latestCard.reward !== undefined && (
+      <>
+        <span style={{ color: "#f4841a" }}>
+          {language === 'en'
+            ? ` + Bonus ${latestCard.reward}`
+            : ` + مكافأة ${latestCard.reward}`}
+        </span>
+        <img
+          className="h-3 w-3 object-contain"
+          src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
+          alt="Bonus"
+        />
+      </>
+    )}
   </span>
 )}
+
 
       </div>
       <div className="absolute end-[3px] top-[3px] overflow-hidden rounded-[3px]">
@@ -634,7 +641,7 @@ const Topupamountcard = () => {
       </div>
       )}
           
-          {showButton && (
+          {/* {showButton && (
   <div dir= {language ==='en'? "ltr":"rtl"} className="fdds sticky inset-x-0 bottom-0 z-10" data-headlessui-state="">
   <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 border-t border-line/50 bg-bg-base p-4 md:justify-end md:gap-10 md:border-none lg:px-10">
 
@@ -644,7 +651,7 @@ const Topupamountcard = () => {
             {latestCard?.value ? (
               <>
                 <img className="h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
-                {latestCard.value} + {latestCard.reward}
+                {latestCard.value} 
               </>
             ) : (
               ''
@@ -657,15 +664,10 @@ const Topupamountcard = () => {
             {language === 'en' ? 'Sum:' : 'المجموع:'}
           </span>
           <span className="items-center [text-decoration:inherit] flex font-bold text-text-content2">
-            {latestCard?.price ? `US$ ${latestCard.price}` : 'Price in US dollars'}
+            {latestCard?.price ? `${latestCard.price}` : ''}
           </span>
         </div>
       </div>
-  
-    
-
-
-    
   <button
   onClick={handleButtonClick}
     style={{
@@ -704,8 +706,7 @@ const Topupamountcard = () => {
 
   </div>
 </div>
-
-)}
+)} */}
 
         </div>
     );

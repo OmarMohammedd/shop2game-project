@@ -266,7 +266,8 @@ const Playerlogincard = () => {
 
 <div dir={language ==='en' ? 'ltr' : 'rtl'} style={{width:"100%"}} className="relative flex flex-col items-center gap-4 text-xs/normal text-text-secondary md:text-sm/[22px]">
       <div className="flex items-center justify-between w-full mb-4">
-        <span className="flex-1">
+        <span className="flex-1"
+         style={{color:"#757575"}}>
           
 {language ==='en' ? 'Or login with your game account' : 'أو سجل دخولك بحساب اللعبة الخاص بك'}
           </span>
