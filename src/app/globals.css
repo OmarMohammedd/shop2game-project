@@ -82,6 +82,17 @@
   }
 }
 
+body {
+  margin: 0;
+  font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
+  overflow-x: hidden;
+  
+}
+
+body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, input, button {
+  font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
+}
+
 
 
 .hover-trigger:hover .hover-card,
@@ -119,9 +130,6 @@
 }
 
 
-
-
-
 @media (max-width: 768px) {
   .hover-card {
   position: absolute;
@@ -156,26 +164,6 @@
   }
 }
 
-
-
-
-
-
-
-
-
-body {
-  margin: 0;
-  font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
-  overflow-x: hidden;
-  
-}
-
-body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, input, button {
-  font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
-}
-
-
 .ddd {
   text-align: left;
 }
@@ -188,7 +176,6 @@ body {
   overflow-x: hidden !important;
   max-width: 100vw;
 }
-
 
 .bordderr {
   position: absolute;
@@ -212,9 +199,6 @@ body {
   margin-left: 40px;
   margin-top: 15px;
 }
-
-
-
 
 .bordderrr {
   position: absolute;

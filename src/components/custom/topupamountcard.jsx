@@ -601,10 +601,16 @@ const Topupamountcard = () => {
           <span className="items-center [text-decoration:inherit] inline-flex">
             
           <span
-           style={{color:"#dd4245"}}
+          //  style={{color:"#dd4245"}}
            className="mb-1 items-center [text-decoration:inherit] inline-flex">
               {/* {latestCard ? latestCard.price : ''} */}
-              ooredoo
+              {/* ooredoo */}
+              <img 
+                style={{
+                   width:"90px",
+                   marginBottom:"4px"
+                }}
+              src="https://res.cloudinary.com/dglafz8eh/image/upload/v1721819524/p2wmlaxdf10uj1ygtfgl.png" alt="" />
           </span>
         </span> 
         {latestCard && (
