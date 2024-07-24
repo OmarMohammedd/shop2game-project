@@ -729,7 +729,10 @@ const Topupamountcard = () => {
       {latestCard?.value && (
         <div className="hover-card absolute hidden p-4 bg-white border rounded shadow-md">
           <div className='flex items-center justify-between'>
-            <p style={{ fontWeight: "800" }}>المجموع</p>
+            <p style={{ fontWeight: "800" }} >
+             
+            {language === 'en' ? 'Total Amount' : 'المجموع'}
+            </p>
             <div className='flex items-center'>
               <img className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
               <span style={{ fontWeight: "800" }}>
@@ -740,14 +743,20 @@ const Topupamountcard = () => {
 
           <div className='mt-3' style={{ backgroundColor: "#f9f9f9", padding: "0.4rem" }}>
             <div className='flex items-center justify-between '>
-              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>السعر الأصلي</p>
+              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>
+                
+                {language === 'en' ? 'Original price' : 'السعر الأصلي'}
+                </p>
               <div className='flex items-center gap-1'>
                 <img style={{ width: "14px" }} className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
                 <span style={{ fontSize: "14px", fontWeight: "500" }}>{latestCard.value}</span>
               </div>
             </div>
             <div className='flex items-center justify-between mt-1'>
-              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>+ مكافأة عام</p>
+              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>
+                
+                {language === 'en' ? '+ Bonus General' : '+ مكافأة عام'}
+                </p>
               <div className='flex items-center gap-1'>
                 <img style={{ width: "14px" }} className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
                 <span style={{ fontSize: "14px", fontWeight: "500" }}>{latestCard.reward}</span>
