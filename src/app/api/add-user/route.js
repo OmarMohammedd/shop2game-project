@@ -8,7 +8,8 @@ export async function POST(req) {
         await connectTodb()
         const isExist = await User.findOne({ uid: uid })
         if (isExist) {
-            return NextResponse.json({ "message": "User Exist with this Uid", "success": false }, { status: 201 })
+            // return NextResponse.json({ "message": "User Exist with this Uid", "success": false }, { status: 201 })
+            return NextResponse.json({ "message": "يوجد مستخدم بهذا المعرف (UID)", "success": false }, { status: 201 })
         }
 
         await User.create({
@@ -16,7 +17,8 @@ export async function POST(req) {
             uid,
             game
         })
-        return NextResponse.json({ "message": "User Added!", "success": true }, { status: 201 })
+        return NextResponse.json({ "message": "تم إضافة المستخدم!", "success": true }, { status: 201 })
+        // return NextResponse.json({ "message": "User Added!", "success": true }, { status: 201 })
     } catch (error) {
         return NextResponse.json({ "message": error.message, "success": false }, { status: 501 })
     }

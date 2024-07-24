@@ -82,6 +82,88 @@
   }
 }
 
+
+
+.hover-trigger:hover .hover-card,
+.hover-card:hover {
+  display: block;
+}
+
+.hover-card {
+  top: -130px; 
+  left: 0;
+  width: 350px;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.section-hover:hover .rotate-button svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+.hover-trigger {
+  position: relative;
+}
+
+.hover-trigger.disabled .hover-card {
+  display: none;
+}
+
+.hover-trigger.enabled:hover .hover-card {
+  display: block;
+}
+
+.section-hover:hover .rotate-button svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .hover-card {
+  position: absolute;
+  left: 0;
+  right: -10px;
+  width: 90vw !important; 
+  z-index: 1000; 
+  overflow-y: hidden; 
+}
+  .section-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .fdds {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .fdds .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fdds .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
 body {
   margin: 0;
   font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
@@ -106,6 +188,61 @@ body {
   overflow-x: hidden !important;
   max-width: 100vw;
 }
+
+
+.bordderr {
+  position: absolute;
+  background-image: linear-gradient(45deg, transparent 50%, #D81A0D 50%);
+  transform-origin: top right;
+  border-start-start-radius: 50%;
+  --tw-scale-x: 0.5;
+  --tw-scale-y: 0.5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  clip-path: polygon(99% 0, 10% 0, 100% 86%);
+  border-top-right-radius: 30px;
+}
+
+.bordderr svg {
+  width: 50px !important;
+  height: 50px !important;
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+
+
+
+.bordderrr {
+  position: absolute;
+  background-image: linear-gradient(45deg, transparent 50%, #D81A0D 50%);
+  transform-origin: top right;
+  border-start-start-radius: 50%;
+  --tw-scale-x: 0.5;
+  --tw-scale-y: 0.5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  clip-path: polygon(82% 0, 10% 0, 80% 81%);
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 55px;
+}
+
+.bordderrr svg {
+  width: 50px !important;
+  height: 50px !important;
+  margin-left: 44px;
+  margin-top: 15px;
+}
+
+
 
 
 .fixed-header {

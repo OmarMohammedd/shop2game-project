@@ -182,6 +182,13 @@ const Topupamountcard = () => {
     setLatestCard(card);
   };
 
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+  
+
     return (
         <div dir={language ==='en' ? 'rtl' : 'ltr'} 
         className='w-fit mt-8 max-[1100px]:w-full' >
@@ -239,7 +246,8 @@ const Topupamountcard = () => {
     style={{
       backgroundColor: !toggle ? 'rgb(255 255 255 / calc(1 * 1))' : 'rgb(244 244 244 / calc(1 * 1))',
       color: !toggle ? 'rgb(216 26 13 / calc(1 * 1))' : 'inherit',
-      fontWeight: !toggle ? 700 : 'normal'
+      fontWeight: !toggle ? 700 : 'normal',
+      fontSize:"14px"
     }}
     onClick={() => {
       settoggle(false);
@@ -262,7 +270,8 @@ const Topupamountcard = () => {
     style={{
       backgroundColor: toggle ? 'rgb(255 255 255 / calc(1 * 1))' : 'rgb(244 244 244 / calc(1 * 1))',
       color: toggle ? 'rgb(216 26 13 / calc(1 * 1))' : 'inherit',
-      fontWeight: toggle ? 700 : 'normal'
+      fontWeight: toggle ? 700 : 'normal',
+      fontSize:"14px"
     }}
     onClick={() => {
       handleTabClick('tab1');
@@ -302,7 +311,9 @@ const Topupamountcard = () => {
             {game === 'freefire' &&
               freefiredata?.map((offer) => {
                 return (
-                  <Offers key={offer.name} name={offer.name} bonus={offer.bonus} heading={offer.heading} />
+                  <Offers
+                  
+                   key={offer.name} name={offer.name} bonus={offer.bonus} heading={offer.heading} />
                 )
               })
             }
@@ -321,14 +332,22 @@ const Topupamountcard = () => {
 
 
 
-            <p className={`text-sm ${language === 'en' ? 'text-left my-2' : 'text-right'} font-medium text-[#757575] font-ar`}>
+            <p 
+            style={{
+               fontSize:"13px"
+            }}
+            className={`text-sm ${language === 'en' ? 'text-left my-2' : 'text-right'} font-medium text-[#757575] font-ar`}>
               {language === 'en' ?
                 'You can redeem your Garena voucher here. Garena vouchers can be purchased through our official distributors' :
                 'يمكنك استبدال رمز قسيمة جارينا من هنا. يمكن شراء قسيمة جارينا من خلال موزعينا الرسمين'}
             </p>
             <span>
               <Link target='_blank' href='https://menadistributors.ff.garena.com/ar'>
-                <p className='font-ar text-sm underline text-[#2E86C1]'>
+                <p 
+                style={{
+                  fontSize:"13px"
+               }}
+                className='font-ar text-sm underline text-[#2E86C1]'>
                   {language === 'en' ?
                     "(Click here to view the list of distributors)" :
                     "(أضغط هنا للاطلاع على قائمة الموزعين)"}
@@ -337,7 +356,12 @@ const Topupamountcard = () => {
             </span>
 
             <div className='w-full'>
-              <p className={`${language === 'en' ? 'text-left' : 'text-right'} text-md mr-1 font-normal text-[#28292f] mt-8 font-ar`} dir={language === 'en' ? 'ltr' : 'rtl'}>
+              <p
+              style={{
+                fontSize:"15px",
+                fontWeight:"500",
+             }}
+               className={`${language === 'en' ? 'text-left' : 'text-right'} text-md mr-1 font-normal text-[#28292f] mt-8 font-ar`} dir={language === 'en' ? 'ltr' : 'rtl'}>
                 {language === 'en' ?
                   "Password for the prepaid Garena card" : "كلمة المرور لبطاقة جارينا المدفوعة مسبقاً"}
               </p>
@@ -571,34 +595,27 @@ const Topupamountcard = () => {
       onClick={() => handleClick('channel-230199')}
     >
 
+ 
+<div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
       
-  <div
-   className='flex items-center gap-2 smmmm' >
-  <img   
-    className={`pointer-events-none h-10 object-contain dark:group-aria-disabled:opacity-40 max-md:shrink max-md:grow md:h-14 md:w-14 ${language === 'en' ? 'mr-auto' : 'ml-auto'}`}
-    src="https://cdn-gop.garenanow.com/webmain/static/payment_center/mena/me_visamastercard_mb.png"
-    alt="Visa/MasterCard"
-    style={{
-      height: "50px",
-      width: "50px"
-    }}
-  />
-
-      <div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:text-base/none">
-      
-
-
+          <span className="items-center [text-decoration:inherit] inline-flex">
+            
+          <span
+           style={{color:"#dd4245"}}
+           className="mb-1 items-center [text-decoration:inherit] inline-flex">
+              {/* {latestCard ? latestCard.price : ''} */}
+              ooredoo
+          </span>
+        </span> 
         {latestCard && (
-  <span className="ooee flex flex-col items-start gap-2 text-sm/none text-bonus">
+  <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
     {latestCard.price && (
-
-      
       <span>
          {latestCard.price}
       </span>
     )}
     {!latestCard.isSecondSession && latestCard.reward !== undefined && (
-      <div className='flex items-center gap-1'>
+      <>
         <span style={{ color: "#f4841a" }}>
           {language === 'en'
             ? ` + Bonus ${latestCard.reward}`
@@ -609,14 +626,13 @@ const Topupamountcard = () => {
           src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
           alt="Bonus"
         />
-      </div>
+      </>
     )}
   </span>
 )}
 
 
       </div>
-  </div>
 
       <div className="absolute end-[3px] top-[3px] overflow-hidden rounded-[3px]">
         <div className="flex text-2xs/none font-bold uppercase">
@@ -656,32 +672,95 @@ const Topupamountcard = () => {
       )}
           
           {showButton && (
+
+
   <div dir= {language ==='en'? "ltr":"rtl"} className="fdds sticky inset-x-0 bottom-0 z-10" data-headlessui-state="">
   <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 border-t border-line/50 bg-bg-base p-4 md:justify-end md:gap-10 md:border-none lg:px-10">
 
-  <div className="flex flex-col md:items-end">
-        <div className="flex items-center gap-1 text-sm/none font-bold md:text-end md:text-base/none">
-          <span className='flex items-center gap-1'>
-            {latestCard?.value ? (
-              <>
-                <img className="h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
-                {latestCard.value} 
-              </>
-            ) : (
-              ''
-            )}
-            <span>{latestCard?.title || ''}</span>
-          </span>
-        </div>
-        <div className="mt-2 flex items-center gap-1 text-sm/none md:text-end md:text-base/none">
-          <span className="font-medium">
-            {language === 'en' ? 'Sum:' : 'المجموع:'}
-          </span>
-          <span className="items-center [text-decoration:inherit] flex font-bold text-text-content2">
-            {latestCard?.price ? `${latestCard.price}` : ''}
-          </span>
-        </div>
+  <div className="pt-3 flex flex-col md:items-end relative hover-trigger section-hover">
+      <div className="flex items-center gap-1 text-sm/none font-bold md:text-end md:text-base/none">
+        <span className="flex items-center gap-1">
+          {latestCard?.value ? (
+            <>
+              <img className="h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
+              {latestCard.value} + {latestCard.reward}
+            </>
+          ) : (
+            ''
+          )}
+          <span>{latestCard?.title || ''}</span>
+        </span>
+
+        {latestCard?.value && (
+          <button
+            className="rounded-full bg-icon-bottom-bar text-lg transition-all rotate-button"
+            type="button"
+            aria-expanded="false"
+            data-headlessui-state=""
+            id="headlessui-popover-button-:r7e:"
+            style={{ backgroundColor: "#f4f4f4" }}
+          >
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-icon"
+            >
+              <path
+                d="M11.25 9.96484L9 7.71484L6.75 9.96484"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        )}
       </div>
+
+      {latestCard?.value && (
+        <div className="hover-card absolute hidden p-4 bg-white border rounded shadow-md">
+          <div className='flex items-center justify-between'>
+            <p style={{ fontWeight: "800" }}>المجموع</p>
+            <div className='flex items-center'>
+              <img className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
+              <span style={{ fontWeight: "800" }}>
+                {(latestCard?.value || 0) + (latestCard?.reward || 0)}
+              </span>
+            </div>
+          </div>
+
+          <div className='mt-3' style={{ backgroundColor: "#f9f9f9", padding: "0.4rem" }}>
+            <div className='flex items-center justify-between '>
+              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>السعر الأصلي</p>
+              <div className='flex items-center gap-1'>
+                <img style={{ width: "14px" }} className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
+                <span style={{ fontSize: "14px", fontWeight: "500" }}>{latestCard.value}</span>
+              </div>
+            </div>
+            <div className='flex items-center justify-between mt-1'>
+              <p style={{ color: "#757575", fontSize: "14px", fontWeight: "500" }}>+ مكافأة عام</p>
+              <div className='flex items-center gap-1'>
+                <img style={{ width: "14px" }} className="ml-1 h-4 w-4 object-contain" src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png" />
+                <span style={{ fontSize: "14px", fontWeight: "500" }}>{latestCard.reward}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-2 flex items-center gap-1 text-sm/none md:text-end md:text-base/none">
+        <span className="font-medium">
+          {language === 'en' ? 'Sum:' : 'المجموع:'}
+        </span>
+        <span className="items-center [text-decoration:inherit] flex font-bold text-text-content2">
+          {latestCard?.price ? `${latestCard.price}` : ''}
+        </span>
+      </div>
+    </div>
+
   <button
   onClick={handleButtonClick}
     style={{
@@ -717,9 +796,10 @@ const Topupamountcard = () => {
 </button>
  
 
-
   </div>
 </div>
+
+
 )}
 
         </div>
@@ -733,11 +813,23 @@ export default Topupamountcard;
 const Offers = ({ name, heading, bonus }) => {
     return (
         <div className=' w-full flex items-center justify-between'>
-            <p className=' text-sm font-[500] font-en'>{name}</p>
+            <p className=' text-sm font-[500] font-en'
+             style={{
+              fontSize:"14px"
+           }}
+            >{name}</p>
             <div className=' flex items-center justify-center gap-2'>
                 <div className=' flex  items-center justify-end flex-col'>
-                    <p className=' text-lg font-medium  font-en'>{heading}</p>
-                    <p className=' text-sm font-medium text-[#ff8f00]'>{bonus}</p>
+                    <p className=' text-lg font-medium  font-en'
+                     style={{
+                      fontSize:"16px"
+                   }}
+                    >{heading}</p>
+                    <p className=' text-sm font-medium text-[#ff8f00]'
+                    style={{
+                      fontSize:"14px"
+                   }}
+                    >{bonus}</p>
                 </div>
                 <Image src='/assets/diamond.png' height={30} width={30} alt='diamond' />
             </div>

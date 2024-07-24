@@ -12,7 +12,8 @@ export async function GET(req) {
         const user = await User.findOne({ uid: uid, game: game })
 
         if (!user) {
-            return NextResponse.json({ "message": "Invalid Player Id", "success": false }, { status: 200 });
+            // return NextResponse.json({ "message": "Invalid Player Id", "success": false }, { status: 200 });
+            return NextResponse.json({ "message": "معرف اللاعب غير صالح", "success": false }, { status: 200 });
         }
 
 

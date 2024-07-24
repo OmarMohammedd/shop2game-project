@@ -15,9 +15,9 @@ const Adminview = () => {
 
         if (name === process.env.NEXT_PUBLIC_ADMIN_NAME && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
             setAuthenticated(true)
-            alert('Logged in !')
+            alert('تم تسجيل الدخول!')
         } else {
-            alert('Invalid Username or Password')
+            alert('اسم المستخدم أو كلمة المرور غير صحيحة')
         }
     }
 
@@ -74,11 +74,11 @@ const AddPlayer = () => {
 
 
         if (playerName === '' || !playerUid || !playerGameType) {
-            return alert('All fields are required');
+            return alert('جميع الحقول مطلوبة');
         }
-        if (playerUid.length !== 8) {
-            return alert('Player UID must be 8 digits');
-        }
+        // if (playerUid.length !== 8) {
+        //     return alert('Player UID must be 8 digits');
+        // }
         setLoading(true);
         // const uid = Number(playerUid);
         try {
@@ -199,16 +199,16 @@ const AddRedeemCode = () => {
 
       const valid = isNumber(prize);
       if (!valid) {
-          return alert('Please enter a valid prize');
+          return alert('يرجى إدخال جائزة صالحة');
       }
 
       if (redeemcode === '' || !prize || !game) {
-          return alert('All fields are required');
+          return alert('جميع الحقول مطلوبة');
       }
 
-      if (redeemcode.length !== 10 || isNaN(redeemcode)) {
-          return alert('Redeem Code must be of 10 digits');
-      }
+      // if (redeemcode.length !== 10 || isNaN(redeemcode)) {
+      //     return alert('Redeem Code must be of 10 digits');
+      // }
 
       const numPrize = Number(prize);
       const numCost = Number(cost);
