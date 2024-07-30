@@ -596,7 +596,13 @@ const Topupamountcard = () => {
     >
 
  
-<div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none">
+<div className="ooddd flex w-full flex-nowrap flex-col gap-x-0.5 gap-y-1 text-sm/none font-medium md:flex-col md:gap-y-2 md:text-base/none"
+ style={{
+   display:"flex",
+   flexDirection:"row",
+   gap:"0.7rem"
+ }}
+>
       
           <span className="items-center [text-decoration:inherit] inline-flex">
             
@@ -607,21 +613,33 @@ const Topupamountcard = () => {
               {/* ooredoo */}
               <img 
                 style={{
-                   width:"90px",
+                   width:"70px",
                    marginBottom:"4px"
                 }}
               src="https://res.cloudinary.com/dglafz8eh/image/upload/v1721819524/p2wmlaxdf10uj1ygtfgl.png" alt="" />
           </span>
         </span> 
         {latestCard && (
-  <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus">
+  <span className="inline-flex items-center gap-0.5 text-sm/none text-bonus"
+  style={{
+    display:"flex",
+    flexDirection:"column",
+    gap:"0.5rem"
+  }}
+   >
     {latestCard.price && (
       <span>
          {latestCard.price}
       </span>
     )}
     {!latestCard.isSecondSession && latestCard.reward !== undefined && (
-      <>
+      <div
+      style={{
+        display:"flex",
+        flexDirection:"row",
+        gap:"0.3rem"
+      }}
+      >
         <span style={{ color: "#f4841a" }}>
           {language === 'en'
             ? ` + Bonus ${latestCard.reward}`
@@ -632,7 +650,7 @@ const Topupamountcard = () => {
           src="https://cdn-gop.garenanow.com/gop/app/0000/100/067/point.png"
           alt="Bonus"
         />
-      </>
+      </div>
     )}
   </span>
 )}
