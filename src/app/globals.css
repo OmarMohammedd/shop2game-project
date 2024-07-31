@@ -332,13 +332,13 @@ body {
 [dir="ltr"] .ssss {
   width: 15px;
   position: absolute;
-  left: 1.5rem;
+  left: 1rem;
   top: 1rem;
 }
 [dir="rtl"] .ssss {
   width: 15px;
   position: absolute;
-  right: 1.5rem;
+  right: 1rem;
   top: 1rem;
 }
 
@@ -348,7 +348,7 @@ body {
 [dir="ltr"] .problem {
   width: 20px;
   position: absolute;
-  left: 1.5rem;
+  left: 1rem;
   top: 1rem;
   background-color: transparent;
   height: 20px;
@@ -358,7 +358,7 @@ body {
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 1.5rem;
+  right: 1rem;
   top: 1rem;
   z-index: 99;
   background-color: transparent;
