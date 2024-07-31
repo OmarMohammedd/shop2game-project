@@ -234,7 +234,7 @@ const Playerlogincard = () => {
 
   <img
   className='ssss'
-  onClick={handleSvgClick}
+  // onClick={handleSvgClick}
   src="./assets/download.png" alt="" />
 
 

@@ -326,18 +326,24 @@ body {
     padding-right: 7px !important;
   }
 }
+
+
+
 [dir="ltr"] .ssss {
   width: 15px;
   position: absolute;
-  left: 1rem;
+  left: 1.5rem;
   top: 1rem;
 }
 [dir="rtl"] .ssss {
   width: 15px;
   position: absolute;
-  right: 1rem;
+  right: 1.5rem;
   top: 1rem;
 }
+
+
+
 
 .no-scroll {
   overflow: hidden;
