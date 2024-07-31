@@ -345,6 +345,28 @@ body {
 
 
 
+[dir="ltr"] .problem {
+  width: 20px;
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
+  background-color: transparent;
+  height: 20px;
+  z-index: 99;
+}
+[dir="rtl"] .problem {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  z-index: 99;
+  background-color: transparent;
+}
+
+
+
+
 .no-scroll {
   overflow: hidden;
 }

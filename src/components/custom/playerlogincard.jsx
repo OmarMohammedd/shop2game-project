@@ -236,6 +236,7 @@ const Playerlogincard = () => {
   className='ssss'
   // onClick={handleSvgClick}
   src="./assets/download.png" alt="" />
+  <div className='problem'></div>
 
 
         {error.appearance && <p className='text-sm font-light mt-1 text-red-600 text-right'>{error.message}</p>}
