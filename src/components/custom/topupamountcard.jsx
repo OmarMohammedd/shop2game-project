@@ -111,14 +111,14 @@ const Topupamountcard = () => {
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/002/058/logo.png',
       altText: 'بطاقة رفع المستوى',
       title: language ==='en' ? "Level Up Pass" : "بطاقة رفع المستوى",
-      price: "US$ 0.99",
+      price: "TND 3.09",
     },
     {
       id: 'r1h',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/item/0803/000/000/logo.png',
       altText: 'تصريح بوياه',
       title: language ==='en' ? "Booyah Pass Card" : "تصريح بوياه",
-      price: "US$ 3",
+      price: "TND 9.36",
     },
   ];
 

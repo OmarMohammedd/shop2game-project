@@ -232,10 +232,10 @@ const Playerlogincard = () => {
         />
 
 
-  <img
+  {/* <img
   className='ssss'
   // onClick={handleSvgClick}
-  src="./assets/download.png" alt="" />
+  src="./assets/download.png" alt="" /> */}
   <div className='problem'></div>
 
 
