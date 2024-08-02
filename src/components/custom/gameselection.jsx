@@ -14,7 +14,7 @@ const Gameselection = () => {
     style={{
       backgroundImage: 'url("/assets/game-selection-bg.png")',
       direction: language === "ar" ? "ltr" : "rtl",
-      
+
     }}
     className="bg-[#efefef] w-full h-[200px] flex items-end flex-col justify-center pt-6"
   >
