@@ -12,10 +12,11 @@ const Gameselection = () => {
   return (
     <div
     style={{
-      backgroundImage: 'url("/assets/game-selection-bg.png")',
+      backgroundImage: 'url("/assets/flipped_iimage.png")',
       direction: language === "ar" ? "ltr" : "rtl",
+      backgroundPosition:"center"
     }}
-    className="bg-[#efefef] w-full h-[200px] flex items-end flex-col justify-center pt-6"
+    className="imageee bg-[#efefef] w-full h-[200px] flex items-end flex-col justify-center pt-6"
   >
     <div className="mx-auto flex flex-col w-full max-w-5xl items-end justify-between px-3 md:px-4">
       <p className="font-ar text-2xl font-bold mb-5"
