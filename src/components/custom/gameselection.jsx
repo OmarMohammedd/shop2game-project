@@ -14,6 +14,7 @@ const Gameselection = () => {
     style={{
       backgroundImage: 'url("/assets/game-selection-bg.png")',
       direction: language === "ar" ? "ltr" : "rtl",
+      
     }}
     className="bg-[#efefef] w-full h-[200px] flex items-end flex-col justify-center pt-6"
   >
@@ -37,7 +38,7 @@ const Gameselection = () => {
                   className={`${
                     game === "blackclover" && "border-4 rounded-[20px] border-[#d81a0d]"
                   } hover:cursor-pointer`}
-                  src="/assets/blackclover-selector.png"
+                  src="/assets/icon.png"
                   alt="selector"
                   height={80}
                   width={80}
@@ -88,7 +89,7 @@ const Gameselection = () => {
                 className={`${
                   game === "blackclover" && "border-4 rounded-[20px] border-[#d81a0d]"
                 } hover:cursor-pointer`}
-                src="/assets/blackclover-selector.png"
+                src="/assets/icon.png"
                 alt="selector"
                 height={80}
                 width={80}

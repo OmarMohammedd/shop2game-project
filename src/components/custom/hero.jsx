@@ -50,7 +50,7 @@ const Hero = () => {
   }
 
   {
-      game === 'blackclover' && <Image src='/assets/main-bannner2.jpg' alt='main-banner' height={700} width={700} />
+      game === 'blackclover' && <Image src='/assets/ffffa-image.jpg' alt='main-banner' height={700} width={700} />
   }
   
               </a>
