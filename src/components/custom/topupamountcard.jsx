@@ -437,7 +437,7 @@ const Topupamountcard = () => {
                  color:"#D81A0D"
               }}
             >
-              Visa/Mastercard
+              أوريدوتونس
             </strong>
             . انقر فوق "إعادة تعيين" لإزالة التحديد.
           </div>
