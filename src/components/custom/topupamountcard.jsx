@@ -111,14 +111,14 @@ const Topupamountcard = () => {
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/rebate/0000/002/058/logo.png',
       altText: 'بطاقة رفع المستوى',
       title: language ==='en' ? "Level Up Pass" : "بطاقة رفع المستوى",
-      price: "TND 3.09",
+      price: "TND 3.7",
     },
     {
       id: 'r1h',
       imgSrc: 'https://cdn-gop.garenanow.com/gop/app/0000/100/067/item/0803/000/000/logo.png',
       altText: 'تصريح بوياه',
       title: language ==='en' ? "Booyah Pass Card" : "تصريح بوياه",
-      price: "TND 9.36",
+      price: "TND 11",
     },
   ];
 
@@ -169,17 +169,33 @@ const Topupamountcard = () => {
       setShowButton(true); 
     }
   };
+  const [showMessagee, setShowMessagee] = useState(false);
+
+  const [disable, setDisable] = useState(false);
+
+  const handleClickk = () => {
+    setShowMessagee((prev) => !prev); 
+    setDisable((prev) => !prev)
+  };
+  
   
   const handleTabClick = (selected) => {
     settoggle(selected);
     setShowButton(false); 
   }
 
-
   const [latestCard, setLatestCard] = useState(cards.find(card => card.id === 1));
   
   const handleCardClicck = (card) => {
     setLatestCard(card);
+  };
+
+  const handleTabClickk = () => {
+    setSelected(null);
+    setShowButton(false);
+    setShowMessagee((prev) => !prev); 
+    // setSelectedCard(null)
+    // setSelectedId(null)
   };
 
 
@@ -403,7 +419,43 @@ const Topupamountcard = () => {
                 role="radiogroup"
               >
 
-
+{showMessagee && (
+        <div className="mb-3"
+           style={{
+            backgroundColor:"#f7f7f7"
+           }}
+        >
+        <div className="flex items-center justify-between gap-4 rounded-md bg-border-login-panel px-2 py-1">
+          <div className="text-xs/normal text-text-secondary md:text-sm/[22px]"
+            style={{
+               color:"#757575"
+            }}
+           >
+            الطائفة المعروضة حاليا تدعم الدفع عن طريق{" "}
+            <strong className="font-medium text-text-content2"
+              style={{
+                 color:"#D81A0D"
+              }}
+            >
+              Visa/Mastercard
+            </strong>
+            . انقر فوق "إعادة تعيين" لإزالة التحديد.
+          </div>
+          <a
+            className="inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red text-primary-red hover:bg-bg-selected dark:hover:border-light-primary-red dark:hover:text-light-primary-red bg-bg-base px-3 text-xs font-medium h-7"
+            href=""
+            onClick={(e) => {
+              e.preventDefault(); 
+              handleTabClickk();
+            }}
+          >
+            إعادة ضبط
+          </a>
+        </div>
+      </div>
+      
+      
+      )}
 <div className="flex flex-col empty:hidden" role="none">
         <div className="flex flex-col gap-4 empty:hidden" role="none">
           <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 md:grid-cols-6 md:gap-4 empty:hidden" role="none">
@@ -583,6 +635,27 @@ const Topupamountcard = () => {
 
  <div className="relative">
   <div className="relative scroll-mt-40 ">
+  {showMessagee && (
+        <div className="mb-4 text-xs/normal text-text-secondary">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="inline-block align-middle text-base/none"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M9 18C9 11.9249 13.9249 7 20 7H60C66.0751 7 71 11.9249 71 18V62C71 68.0751 66.0751 73 60 73H20C13.9249 73 9 68.0751 9 62V18ZM20 13C17.2386 13 15 15.2386 15 18V62C15 64.7614 17.2386 67 20 67H60C62.7614 67 65 64.7614 65 62V18C65 15.2386 62.7614 13 60 13H20ZM23 31C23 29.3431 24.3431 28 26 28H54C55.6569 28 57 29.3431 57 31C57 32.6569 55.6569 34 54 34H26C24.3431 34 23 32.6569 23 31ZM26 46C24.3431 46 23 47.3431 23 49C23 50.6569 24.3431 52 26 52H42C43.6569 52 45 50.6569 45 49C45 47.3431 43.6569 46 42 46H26Z"
+            fill="currentColor"
+          />
+        </svg>{" "}
+        <span>يمكنك استخدام بطاقات فيزا/ماستر كارد لإجراء الدفع</span>
+      </div>
+      
+      )}
     <div
       className={`oddd mb-2 outline outline-1 outline-gray-200 group peer relative flex h-full min-h-[80px] cursor-pointer items-start gap-2 rounded-md 
         ${selected === 'channel-230199' ? 'bg-[rgb(255,244,244,calc(1*1))] outline-red-700 outline-2 -outline-offset-2 '
@@ -592,7 +665,10 @@ const Topupamountcard = () => {
       role="radio"
       aria-checked={selected === 'channel-230199'}
       tabIndex={0}
-      onClick={() => handleClick('channel-230199')}
+      onClick={() => {
+        handleClick('channel-230199');
+        handleClickk();
+      }}
     >
 
  
@@ -794,15 +870,21 @@ const Topupamountcard = () => {
       </div>
     </div>
 
-  <button
+    <button
   onClick={handleButtonClick}
-    style={{
-       color:"#fff",
-       background:"#D81A0D",
-       fontWeight: "700",
-       zIndex:"0",
-    }}
-   className="inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11">
+  style={{
+    color: "#fff",
+    background: "#D81A0D",
+    fontWeight: "700",
+    zIndex: "0",
+  }}
+  disabled={!disable} 
+  className={
+    disable
+      ? "inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11"
+      : "inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11 opacity-40 cursor-not-allowed"
+  }
+>
 
   <span className="text-lg h-[18px] w-[18px]">
     <svg

@@ -9,11 +9,13 @@ import { Login, Logout } from '@/redux/slices/userslice';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from "@/components/ui/menubar";
 import Image from 'next/image';
 import { changeLan } from "@/redux/slices/settingsSlice";
+import { toggleToBC, toggleToFF } from "@/redux/slices/gameslice";
 
 
 
 
 const Playerlogincard = () => {
+
 
   const dispatch = useDispatch();
   const language = useSelector((state) => state.lan.language);
@@ -24,7 +26,6 @@ const Playerlogincard = () => {
       dispatch(changeLan(savedLanguage));
     }
   }, [dispatch]);
-
 
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -166,7 +167,7 @@ const Playerlogincard = () => {
 </div>
 
 {!user?.loggedIn ? (
-<div className='w-fit max-[736px]:w-full h-fit bg-[#eee] rounded-lg mt-5 gap-5 border-[#e5e7eb] border flex flex-col items-end py-4 pb-6 px-8 justify-center'>
+<div className='widthh w-fit max-[736px]:w-full h-fit bg-[#eee] rounded-lg mt-5 gap-5 border-[#e5e7eb] border flex flex-col items-end py-4 pb-6 px-8 justify-center'>
 <div className='flex flex-col items-end justify-center gap-2 max-[736px]:w-full'>
 <div className='flex gap-1'>
 
@@ -281,6 +282,7 @@ const Playerlogincard = () => {
           
 {language ==='en' ? 'Or login with your game account' : 'أو سجل دخولك بحساب اللعبة الخاص بك'}
           </span>
+          {game === "freefire" &&   
         <div className="flex gap-4">
           <a
             className="shrink-0 rounded-full p-1.5 transition-opacity hover:opacity-70 bg-[#006AFC]"
@@ -329,6 +331,35 @@ const Playerlogincard = () => {
             />
           </a>
         </div>
+          }
+
+{game === "blackclover" &&   
+        <div className="flex gap-4">
+          <a
+            className="shrink-0 rounded-full p-1.5 transition-opacity hover:opacity-70 bg-[#006AFC]"
+            href="https://authgop.garena.com/universal/oauth?client_id=10017&redirect_uri=https%3A%2F%2Fshop2game.com%2F%3Fapp%3D100067&response_type=token&platform=3&locale=en-US&theme=light"
+            onClick={handleClick}
+          >
+            <img
+              className="h-5 w-5 brightness-0 invert"
+              src="https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/ic-fb-485c92b0.svg"
+              alt="Facebook logo"
+            />
+          </a>
+          <a
+  className="shrink-0 rounded-full p-1.5 transition-opacity hover:opacity-70 bg-white"
+  href="https://authgop.garena.com/universal/oauth?client_id=10017&redirect_uri=https%3A%2F%2Fshop2game.com%2F%3Fapp%3D100067&response_type=token&platform=8&locale=en-US&theme=light"
+  onClick={handleClick}
+>
+  <img
+    className="h-5 w-5"
+    src="https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/ic-google-d2ceaa95.svg"
+    alt="Google logo"
+  />
+</a>
+        </div>
+          }
+
       </div>
       {errorMessage && showError && (
         <div className="absolute bottom-0 left-0 w-full text-red-500 transition-opacity duration-500 opacity-100">

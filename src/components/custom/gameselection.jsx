@@ -2,17 +2,44 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleToBC, toggleToFF } from "@/redux/slices/gameslice";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const Gameselection = () => {
+  
   const game = useSelector((state) => state.game.value);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const language = useSelector((state) => state.lan.language);
 
+
+  useEffect(() => {
+    const applyDarkModeClass = (isDarkMode) => {
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    };
+
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    applyDarkModeClass(darkModeMediaQuery.matches);
+
+    const handleChange = (e) => applyDarkModeClass(e.matches);
+    darkModeMediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+
+
   return (
     <div
+    id="background-div"
     style={{
-      backgroundImage: 'url("/assets/flipped_iimage.png")',
+      // backgroundImage: 'url("/assets/flipped_iimage.png")',
       direction: language === "ar" ? "ltr" : "rtl",
       backgroundPosition:"center"
     }}
