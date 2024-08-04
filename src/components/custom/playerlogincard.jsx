@@ -217,7 +217,11 @@ const Playerlogincard = () => {
 
 <div >
 <div dir={language ==='en' ? 'rtl' : 'ltr'}  className='w-full flex max-[736px]:w-full'>
-    <Button disabled={loading} onClick={handlePlayerLogin} variant='custom' size='custom'>
+    <Button 
+     style={{
+        height:"2.75rem"
+     }}
+    disabled={loading} onClick={handlePlayerLogin} variant='custom' size='custom'>
     {loading ? (language === 'en' ? 'Login ...' : '... تسجيل الدخول') : (language === 'en' ? 'Login' : 'تسجيل الدخول')}
     </Button>
     <div className='relative max-[736px]:w-full'>

@@ -114,6 +114,14 @@ body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, input, button {
 }
 .oooo {
   width: 300px;
+  height: 2.75rem;
+}
+
+.oooo:focus {
+  border: none !important;
+}
+.oooo::placeholder {
+  color: #7575756f !important;
 }
 /* @media (max-width:736px) {
   .oooo {
