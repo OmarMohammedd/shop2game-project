@@ -94,16 +94,16 @@ body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, input, button {
 }
 
 /* CSS للأنماط الافتراضية */
-.imageee {
+/* .imageee {
   background-color: #efefef;
   background-image: url("/assets/flipped_iimage.png");
-}
+} */
 
 /* CSS للوضع المظلم */
-.dark-mode .imageee {
+/* .dark-mode .imageee {
   background-color: #000;
   background-image: url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/pattern-game-selection-59889447.png");
-}
+} */
 
 
 
