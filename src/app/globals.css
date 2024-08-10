@@ -93,17 +93,14 @@ body, p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, input, button {
   font-family: Metropolis, Noto Sans Thai, Noto Sans Arabic, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
 }
 
-/* CSS للأنماط الافتراضية */
-/* .imageee {
+.imageee {
   background-color: #efefef;
   background-image: url("/assets/flipped_iimage.png");
-} */
-
-/* CSS للوضع المظلم */
-/* .dark-mode .imageee {
+}
+.dark-mode .imageee {
   background-color: #000;
-  background-image: url("https://cdn-gop.garenanow.com/gop/mshop/www/live/assets/pattern-game-selection-59889447.png");
-} */
+  background-image: url("/assets/paattern-game-selection-59889447.png");
+}
 
 
 

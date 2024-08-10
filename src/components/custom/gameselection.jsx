@@ -37,19 +37,19 @@ const Gameselection = () => {
 
   return (
     <div
-    // id="background-div"
+    id="background-div"
     style={{
+      // paattern-game-selection-59889447.png
       backgroundImage: 'url("/assets/paattern-game-selection-59889447.png")',
       direction: language === "ar" ? "ltr" : "rtl",
-      backgroundPosition:"center"
+      backgroundPosition:"10% 0%"
     }}
-    className="imageee bg-[#000000e2] w-full h-[200px] flex items-end flex-col justify-center pt-6"
+    className="imageee bg-[#000] w-full h-[200px] flex items-end flex-col justify-center pt-6"
   >
     <div className="mx-auto flex flex-col w-full max-w-5xl items-end justify-between px-3 md:px-4">
       <p className="font-ar text-2xl font-bold mb-5"
        style={{
         fontSize:"21px",
-        color:"#fff"
      }}
       >
         {language === "en" ? "Game Selection" : "اختيار اللعبة"}
@@ -153,7 +153,7 @@ className="bordderrr"
                 className={
                   game === "blackclover"
                     ? "font-custom font-semibold text-[#d81a0d]"
-                    : "font-custom font-[500] text-[15px] text-[#fff]"
+                    : "font-custom font-[500] text-[15px] "
                 }
                 style={{
                   fontSize:"14px"
@@ -204,7 +204,7 @@ className="bordderr"
                 className={
                   game === "freefire"
                     ? "font-custom font-semibold text-[#d81a0d]"
-                    : "font-custom font-[500] text-[15px] text-[#fff]"
+                    : "font-custom font-[500] text-[15px] "
                 }
                 style={{
                   fontSize:"14px"
